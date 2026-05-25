@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 // Import semua sub-komponen rapi yang baru dibuat
@@ -12,19 +12,26 @@ import AccountNumber from "./components/AccountNumberComponent";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [guestName, setGuestName] = useState("Tamu Undangan");
 
-  const [guestName] = useState(() => {
-    const params = new URLSearchParams(window.location.search);
-    const toParam = params.get("to");
-    return toParam ? toParam : "Tamu Undangan";
-  });
+  // Membaca URL secara dinamis saat halaman dimuat di client (browser)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const toParam = params.get("to");
+      if (toParam) {
+        setGuestName(toParam);
+      }
+    }
+  }, []);
 
   const handleOpenInvitation = () => {
     setIsOpen(true);
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 font-inter text-slate-800 overflow-x-hidden">
+    <div className="min-h-screen bg-white font-inter text-zinc-900 overflow-x-hidden">
+      {/* Layar Cover Depan */}
       <AnimatePresence>
         {!isOpen && (
           <Cover
@@ -34,6 +41,7 @@ const App = () => {
         )}
       </AnimatePresence>
 
+      {/* Konten Utama Undangan */}
       <div className={isOpen ? "min-h-screen" : "h-screen overflow-hidden"}>
         <motion.main
           initial={{ opacity: 0, y: 40 }}
