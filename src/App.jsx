@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 // Import semua sub-komponen rapi yang baru dibuat
@@ -14,8 +14,8 @@ const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [guestName, setGuestName] = useState("Tamu Undangan");
 
-  // Membaca URL secara dinamis saat halaman dimuat di client (browser)
-  useEffect(() => {
+  // Menggunakan useCallback agar fungsi tidak dibuat ulang di setiap render
+  const updateGuestName = useCallback(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
       const toParam = params.get("to");
@@ -24,6 +24,18 @@ const App = () => {
       }
     }
   }, []);
+
+  useEffect(() => {
+    // Jalankan langsung saat komponen pertama kali dimuat di browser
+    updateGuestName();
+
+    // Dengarkan perubahan histori URL jika ada navigasi internal
+    window.addEventListener("popstate", updateGuestName);
+
+    return () => {
+      window.removeEventListener("popstate", updateGuestName);
+    };
+  }, [updateGuestName]);
 
   const handleOpenInvitation = () => {
     setIsOpen(true);
