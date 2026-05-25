@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "DM Sans", Arial, sans-serif;
+
+  --color-company-50: #f4f4f2;
+  --color-company-100: #e4e3dd;
+  --color-company-200: #cbc9bd;
+  --color-company-300: #aca998;
+  --color-company-400: #948f7b;
+  --color-company-500: #86806c;
+  --color-company-600: #766f5f;
+  --color-company-700: #5d564b;
+  --color-company-800: #504a43;
+  --color-company-900: #47413c;
+  --color-company-950: #272421;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  font-family: var(--font-display);
+  color: var(--color-company-950);
+}
