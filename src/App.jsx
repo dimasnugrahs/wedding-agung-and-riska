@@ -9,6 +9,7 @@ import Gallery from "./components/GalleryComponent";
 import Footer from "./components/FooterComponent";
 import BigPhotoComponent from "./components/BigPhotoComponent";
 import AccountNumber from "./components/AccountNumberComponent";
+import Profile from "./components/ProfileComponent";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,6 +63,8 @@ const App = () => {
           className="mx-auto space-y-0"
         >
           <Hero />
+
+          <Profile />
 
           <WishSection />
 

@@ -25,7 +25,7 @@ const Gallery = () => {
 
       {/* GRID FOTO RATA 6 KOLOM PENUH */}
       {/* Menggunakan grid-cols-2 untuk mobile, grid-cols-3 untuk tablet, dan grid-cols-6 untuk desktop */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-2 mx-20">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-2 mx-6 md:mx-20">
         {weddingPhotos.map((url, i) => (
           <div
             key={i}

@@ -1,20 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-display: "DM Sans", Arial, sans-serif;
+  --font-display: "Bricolage Grotesque", Arial, sans-serif;
 
-  --color-company-50: #f4f4f2;
-  --color-company-100: #e4e3dd;
-  --color-company-200: #cbc9bd;
-  --color-company-300: #aca998;
-  --color-company-400: #948f7b;
-  --color-company-500: #86806c;
-  --color-company-600: #766f5f;
-  --color-company-700: #5d564b;
-  --color-company-800: #504a43;
-  --color-company-900: #47413c;
-  --color-company-950: #272421;
+  --font-serif: "Bricolage Grotesque", Arial, sans-serif;
+
+  --color-wedding-50: #f4f4f2;
+  --color-wedding-100: #e4e3dd;
+  --color-wedding-200: #cbc9bd;
+  --color-wedding-300: #aca998;
+  --color-wedding-400: #948f7b;
+  --color-wedding-500: #86806c;
+  --color-wedding-600: #766f5f;
+  --color-wedding-700: #5d564b;
+  --color-wedding-800: #504a43;
+  --color-wedding-900: #47413c;
+  --color-wedding-950: #272421;
 }
 
 body {

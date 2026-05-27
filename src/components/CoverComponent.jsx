@@ -21,11 +21,8 @@ const Cover = ({ guestName, handleOpenInvitation }) => {
         transition={{ delay: 0.2, duration: 0.8 }}
         className="mt-12"
       >
-        <span className="text-amber-200 text-xs md:text-sm tracking-widest uppercase font-medium">
-          The Wedding of
-        </span>
-        <h1 className="font-sacramento text-5xl md:text-7xl text-amber-100 mt-2">
-          Romeo & Juliet
+        <h1 className="font-display font-light text-5xl md:text-7xl text-white mt-8">
+          Agung & Riska
         </h1>
       </motion.div>
 
@@ -34,12 +31,12 @@ const Cover = ({ guestName, handleOpenInvitation }) => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="my-auto max-w-md bg-black/20 backdrop-blur-sm p-6 rounded-2xl border border-white/10 mx-4"
+        className="my-auto max-w-md md:bg-black/2 md:backdrop-blur-sm rounded-2xl md:border md:border-white/10 md:mx-4 md:px-10 md:py-10"
       >
-        <p className="text-amber-200 text-xs md:text-sm uppercase tracking-wider mb-2">
+        <p className="text-white text-xs md:text-sm uppercase tracking-wider mb-2">
           Kepada Yth. Bapak/Ibu/Saudara/i:
         </p>
-        <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-wide capitalize px-4">
+        <h2 className="text-2xl md:text-3xl font-medium text-white tracking-wide capitalize px-4">
           {guestName}
         </h2>
         <p className="text-slate-300 text-xs mt-3 italic">
