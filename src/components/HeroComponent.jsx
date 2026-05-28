@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 const Hero = () => {
   // Tanggal target pernikahan Agung & Riska
-  const TARGET_DATE = "2026-05-27T09:00:00";
+  const TARGET_DATE = "2026-06-23T09:00:00";
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -36,7 +36,6 @@ const Hero = () => {
 
   return (
     <section className="text-center h-screen flex flex-col justify-between bg-black text-white font-inter">
-      {/* 1. BAGIAN GAMBAR UTAMA (HERO BANNER) */}
       <div
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070')`,
@@ -44,7 +43,7 @@ const Hero = () => {
         className="h-3/4 bg-cover bg-center flex items-end justify-center pb-16 px-4"
       >
         <div className="space-y-3">
-          <h1 className="font-sacramento text-5xl md:text-7xl tracking-wide text-white font-light">
+          <h1 className="font-angele text-5xl md:text-7xl tracking-wide text-white font-light">
             Agung & Riska
           </h1>
           <div className="text-xs md:text-sm tracking-[0.3em] uppercase text-zinc-300 font-light flex items-center justify-center gap-2">
@@ -57,17 +56,15 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* 2. BAGIAN HITUNG MUNDUR (TIMER BLACK & WHITE) */}
-      <div className="flex-grow flex flex-col items-center justify-center bg-white text-black py-8 border-t border-zinc-200">
-        <p className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-zinc-400 font-semibold mb-5">
-          Counting Down To The Big Day
+      <div className="grow flex flex-col items-center justify-center bg-white text-black py-8 border-t border-zinc-200">
+        <p className="font-angele text-[10px] md:text-xs uppercase tracking-[0.25em] text-zinc-400 font-semibold mb-5">
+          Menghitung hari menuju momen yang paling dinantikan.
         </p>
 
-        {/* Grid Container Timer */}
         <div className="grid grid-cols-4 gap-4 md:gap-8 max-w-sm w-full px-6">
           {/* Hari */}
           <div className="flex flex-col items-center">
-            <span className="font-serif text-3xl md:text-4xl font-light text-zinc-900 tracking-tight">
+            <span className="font-angele text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
               {String(timeLeft.days).padStart(2, "0")}
             </span>
             <span className="text-[9px] uppercase tracking-widest text-zinc-400 mt-1">
@@ -77,7 +74,7 @@ const Hero = () => {
 
           {/* Jam */}
           <div className="flex flex-col items-center border-l border-zinc-100">
-            <span className="font-serif text-3xl md:text-4xl font-light text-zinc-900 tracking-tight">
+            <span className="font-angele text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
               {String(timeLeft.hours).padStart(2, "0")}
             </span>
             <span className="text-[9px] uppercase tracking-widest text-zinc-400 mt-1">
@@ -87,7 +84,7 @@ const Hero = () => {
 
           {/* Menit */}
           <div className="flex flex-col items-center border-l border-zinc-100">
-            <span className="font-serif text-3xl md:text-4xl font-light text-zinc-900 tracking-tight">
+            <span className="font-angele text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
               {String(timeLeft.minutes).padStart(2, "0")}
             </span>
             <span className="text-[9px] uppercase tracking-widest text-zinc-400 mt-1">
@@ -97,7 +94,7 @@ const Hero = () => {
 
           {/* Detik */}
           <div className="flex flex-col items-center border-l border-zinc-100">
-            <span className="font-serif text-3xl md:text-4xl font-light text-zinc-900 tracking-tight animate-pulse">
+            <span className="font-angele text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight animate-pulse">
               {String(timeLeft.seconds).padStart(2, "0")}
             </span>
             <span className="text-[9px] uppercase tracking-widest text-zinc-400 mt-1">

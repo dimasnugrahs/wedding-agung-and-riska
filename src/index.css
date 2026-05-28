@@ -1,10 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Angele";
+  src: url("./assets/fonts/angele-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Angele";
+  src: url("./assets/fonts/angele-italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Angele";
+  src: url("./assets/fonts/angele-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Angele";
+  src: url("./assets/fonts/angele-bolditalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 @theme {
   --font-display: "Bricolage Grotesque", Arial, sans-serif;
 
-  --font-serif: "Bricolage Grotesque", Arial, sans-serif;
+  --font-angele: "Angele", Arial, sans-serif;
 
   --color-wedding-50: #f4f4f2;
   --color-wedding-100: #e4e3dd;

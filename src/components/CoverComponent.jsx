@@ -21,7 +21,7 @@ const Cover = ({ guestName, handleOpenInvitation }) => {
         transition={{ delay: 0.2, duration: 0.8 }}
         className="mt-12"
       >
-        <h1 className="font-display font-light text-5xl md:text-7xl text-white mt-8">
+        <h1 className="font-angele font-light text-5xl md:text-7xl text-white mt-8">
           Agung & Riska
         </h1>
       </motion.div>
@@ -33,13 +33,13 @@ const Cover = ({ guestName, handleOpenInvitation }) => {
         transition={{ delay: 0.5, duration: 0.8 }}
         className="my-auto max-w-md md:bg-black/2 md:backdrop-blur-sm rounded-2xl md:border md:border-white/10 md:mx-4 md:px-10 md:py-10"
       >
-        <p className="text-white text-xs md:text-sm uppercase tracking-wider mb-2">
+        <p className="text-white font-light text-xs md:text-sm uppercase tracking-wider mb-2">
           Kepada Yth. Bapak/Ibu/Saudara/i:
         </p>
-        <h2 className="text-2xl md:text-3xl font-medium text-white tracking-wide capitalize px-4">
+        <h2 className="font-angele font-bold text-2xl md:text-3xl text-white tracking-wide px-4">
           {guestName}
         </h2>
-        <p className="text-slate-300 text-xs mt-3 italic">
+        <p className="text-slate-300 text-xs mt-3 italic font-extralight">
           *Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda.
         </p>
       </motion.div>
