@@ -1,16 +1,14 @@
+import imageCover from "../assets/images/agung-cover.jpg";
+
 const Profile = () => {
-  const GROOM_BG =
-    "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000&auto=format&fit=crop&sat=-100";
-  const BRIDE_BG =
-    "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop&sat=-100";
   return (
     <div>
       <div className="block md:hidden">
         {/* Kolom Pria - Full Screen & Background */}
-        <div className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 py-20 text-white overflow-hidden">
+        <div className="relative min-h-screen flex flex-col justify-end items-end px-6 py-20 text-white overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img
-              src={GROOM_BG}
+              src={imageCover}
               alt="Groom"
               className="w-full h-full object-cover filter grayscale opacity-40 contrast-125"
             />
@@ -35,7 +33,7 @@ const Profile = () => {
             <p className="font-light pt-10 text-zinc-200 max-w-sm mx-auto">
               Kupang Barat, Kupang, Nusa Tenggara Timur
             </p>
-            <div className="pt-6 flex justify-center text-sm">
+            <div className="pt-6 flex text-sm">
               <a
                 href="#"
                 className="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
@@ -61,14 +59,14 @@ const Profile = () => {
         </div>
 
         {/* Kolom Wanita - Full Screen & Background */}
-        <div className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 py-20 text-white overflow-hidden border-t border-white/10">
+        <div className="relative min-h-screen flex flex-col justify-end items-end px-6 py-20 text-white px-6 py-20 text-white overflow-hidden border-t border-white/10">
           <div className="absolute inset-0 z-0">
             <img
-              src={BRIDE_BG}
+              src={imageCover}
               alt="Bride"
               className="w-full h-full object-cover filter grayscale opacity-40 contrast-125"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80"></div>
+            <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/80"></div>
           </div>
 
           <div className="relative z-10 space-y-0 w-full">
@@ -87,7 +85,7 @@ const Profile = () => {
             <p className="font-light pt-10 text-zinc-200 max-w-sm mx-auto">
               Victoria Road, London, United Kingdom
             </p>
-            <div className="pt-6 flex justify-center text-sm">
+            <div className="pt-6 flex text-sm">
               <a
                 href="#"
                 className="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"

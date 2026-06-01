@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
+import imageCover from "../assets/images/agung-cover.jpg";
 
 const Hero = () => {
   // Tanggal target pernikahan Agung & Riska
-  const TARGET_DATE = "2026-06-23T09:00:00";
+  const TARGET_DATE = "2026-10-20T13:00:00";
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -38,7 +39,7 @@ const Hero = () => {
     <section className="text-center h-screen flex flex-col justify-between bg-black text-white font-inter">
       <div
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(${imageCover})`,
         }}
         className="h-3/4 bg-cover bg-center flex items-end justify-center pb-16 px-4"
       >
@@ -58,7 +59,7 @@ const Hero = () => {
 
       <div className="grow flex flex-col items-center justify-center bg-white text-black py-8 border-t border-zinc-200">
         <p className="font-angele text-[10px] md:text-xs uppercase tracking-[0.25em] text-zinc-400 font-semibold mb-5">
-          Menghitung hari menuju momen yang paling dinantikan.
+          Counting Down to Our Special Day.
         </p>
 
         <div className="grid grid-cols-4 gap-4 md:gap-8 max-w-sm w-full px-6">

@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import imageCover from "../assets/images/agung-cover.jpg";
 
 const Cover = ({ guestName, handleOpenInvitation }) => {
   return (
@@ -11,66 +12,73 @@ const Cover = ({ guestName, handleOpenInvitation }) => {
       }}
       className="fixed inset-0 z-999 flex flex-col justify-between items-center text-center p-6 bg-cover bg-center"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070')`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url(${imageCover})`,
       }}
     >
-      {/* Bagian Atas: Nama Pengantin */}
+      <div className="hidden md:block h-4"></div>
+
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
-        className="mt-12"
+        className="my-auto"
       >
-        <h1 className="font-angele font-light text-5xl md:text-7xl text-white mt-8">
-          Agung & Riska
+        {/* <h1 className="font-angele font-light text-5xl md:text-7xl bg-linear-to-r from-wedding-700 via-wedding-300 to-wedding-700 bg-clip-text text-transparent tracking-wide"> */}
+        <h1 className="font-angele font-light text-5xl md:text-7xl text-white tracking-wide">
+          AGUNG & RISKA
         </h1>
+        <div className="text-xs md:text-sm tracking-[0.3em] uppercase text-zinc-300 font-light flex items-center justify-center gap-2 mt-4">
+          <span>27</span>
+          <span className="text-zinc-500">•</span>
+          <span>05</span>
+          <span className="text-zinc-500">•</span>
+          <span>2026</span>
+        </div>
       </motion.div>
 
-      {/* Bagian Tengah: Box Nama Tamu */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-        className="my-auto max-w-md md:bg-black/2 md:backdrop-blur-sm rounded-2xl md:border md:border-white/10 md:mx-4 md:px-10 md:py-10"
-      >
-        <p className="text-white font-light text-xs md:text-sm uppercase tracking-wider mb-2">
-          Kepada Yth. Bapak/Ibu/Saudara/i:
-        </p>
-        <h2 className="font-angele font-bold text-2xl md:text-3xl text-white tracking-wide px-4">
-          {guestName}
-        </h2>
-        <p className="text-slate-300 text-xs mt-3 italic font-extralight">
-          *Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda.
-        </p>
-      </motion.div>
-
-      {/* Bagian Bawah: Tombol Buka */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.8 }}
-        className="mb-12"
-      >
-        <button
-          onClick={handleOpenInvitation}
-          className="flex items-center gap-2.5 bg-amber-600 hover:bg-amber-700 text-white font-medium px-6 py-3 rounded-full shadow-xl shadow-amber-900/30 hover:scale-105 active:scale-95 transition-all text-sm group"
+      <div className="w-full max-w-md flex flex-col items-center gap-8 mb-8">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="w-full rounded-2xl px-4 py-4"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-5 h-5 group-hover:animate-bounce"
+          <p className="text-zinc-300 font-light text-xs md:text-sm uppercase tracking-wider">
+            Kepada Yth. Bapak/Ibu/Saudara/i:
+          </p>
+          <h2 className="font-angele font-bold text-2xl md:text-3xl text-white tracking-wide">
+            {guestName}
+          </h2>
+        </motion.div>
+
+        {/* Tombol Buka Undangan */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+          className="w-full flex justify-center"
+        >
+          <button
+            onClick={handleOpenInvitation}
+            className="flex items-center gap-2.5 border-2 border-wedding-600 bg-transparent hover:bg-wedding-600 text-white font-medium px-8 py-3.5 rounded-full shadow hover:scale-105 active:scale-95 transition-all text-sm group"
           >
-            <path d="M21.2 8.4c.5.3.8.8.8 1.4v10c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V9.8c0-.6.3-1.1.8-1.4l8-4.8c.7-.4 1.5-.4 2.2 0l8 4.8z" />
-            <path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10" />
-          </svg>
-          Buka Undangan
-        </button>
-      </motion.div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-5 h-5 group-hover:animate-bounce"
+            >
+              <path d="M21.2 8.4c.5.3.8.8.8 1.4v10c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V9.8c0-.6.3-1.1.8-1.4l8-4.8c.7-.4 1.5-.4 2.2 0l8 4.8z" />
+              <path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10" />
+            </svg>
+            Buka Undangan
+          </button>
+        </motion.div>
+      </div>
     </motion.div>
   );
 };
