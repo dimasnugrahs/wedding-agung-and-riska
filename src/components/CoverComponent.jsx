@@ -30,7 +30,7 @@ const Cover = ({ guestName, handleOpenInvitation }) => {
         </h1>
       </motion.div>
 
-      <div className="w-full max-w-md flex flex-col items-center gap-8 mb-8">
+      <div className="w-full max-w-md flex flex-col items-center gap-2 mb-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
