@@ -54,7 +54,7 @@ const Cover = ({ guestName, handleOpenInvitation }) => {
         >
           <button
             onClick={handleOpenInvitation}
-            className="flex items-center gap-2.5  border hover:border-0 border-wedding-600 bg-linear-to-r from-wedding-700 via-wedding-400 to-wedding-700 md:bg-none hover:bg-linear-to-r hover:from-wedding-700 hover:via-wedding-400 hover:to-wedding-700 text-white font-medium px-8 py-3.5 rounded-full shadow hover:scale-105 active:scale-95 transition-all text-sm group"
+            className="flex items-center gap-2.5  border hover:border-0 border-wedding-600 md:bg-none hover:bg-linear-to-r hover:from-wedding-700 hover:via-wedding-500 hover:to-wedding-700 text-white font-medium px-8 py-3.5 rounded-full shadow hover:scale-105 active:scale-95 transition-all text-sm group"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
