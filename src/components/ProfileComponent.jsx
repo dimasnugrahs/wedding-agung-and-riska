@@ -1,4 +1,4 @@
-import imageCover from "../assets/images/agung-cover.jpg";
+import imageCover from "../assets/images/agung-hero-1.jpg";
 
 const Profile = () => {
   return (
