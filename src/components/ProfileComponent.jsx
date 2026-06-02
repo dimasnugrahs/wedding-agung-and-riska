@@ -4,7 +4,6 @@ const Profile = () => {
   return (
     <div>
       <div className="block md:hidden">
-        {/* Kolom Pria - Full Screen & Background */}
         <div className="relative min-h-screen flex flex-col justify-end items-end px-6 py-20 text-white overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img
@@ -12,7 +11,7 @@ const Profile = () => {
               alt="Groom"
               className="w-full h-full object-cover filter grayscale opacity-40 contrast-125"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80"></div>
+            <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/80"></div>
           </div>
 
           <div className="relative z-10 space-y-0 w-full">
@@ -58,8 +57,7 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Kolom Wanita - Full Screen & Background */}
-        <div className="relative min-h-screen flex flex-col justify-end items-end px-6 py-20 text-white px-6 py-20 text-white overflow-hidden border-t border-white/10">
+        <div className="relative min-h-screen flex flex-col justify-end items-end px-6 py-20 text-white overflow-hidden border-t border-white/10">
           <div className="absolute inset-0 z-0">
             <img
               src={imageCover}

@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import imageCover from "../assets/images/agung-cover.jpg";
+import imageCover from "../assets/images/agung-cover-compressed.webp";
 
 const Cover = ({ guestName, handleOpenInvitation }) => {
   return (
@@ -15,25 +15,19 @@ const Cover = ({ guestName, handleOpenInvitation }) => {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url(${imageCover})`,
       }}
     >
-      <div className="hidden md:block h-4"></div>
-
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
-        className="my-auto"
+        className="mt-12"
       >
-        {/* <h1 className="font-angele font-light text-5xl md:text-7xl bg-linear-to-r from-wedding-700 via-wedding-300 to-wedding-700 bg-clip-text text-transparent tracking-wide"> */}
-        <h1 className="font-angele font-light text-5xl md:text-7xl text-white tracking-wide">
+        <div className="text-xs md:text-sm tracking-[0.3em] uppercase text-zinc-300 font-light flex items-center justify-center gap-2 mt-4">
+          THE WEDDING
+        </div>
+        <h1 className="font-angele font-light text-5xl md:text-7xl bg-linear-to-r from-wedding-700 via-wedding-300 to-wedding-700 bg-clip-text text-transparent tracking-wide">
+          {/* <h1 className="font-angele font-light text-5xl md:text-7xl text-white tracking-wide"> */}
           AGUNG & RISKA
         </h1>
-        <div className="text-xs md:text-sm tracking-[0.3em] uppercase text-zinc-300 font-light flex items-center justify-center gap-2 mt-4">
-          <span>27</span>
-          <span className="text-zinc-500">•</span>
-          <span>05</span>
-          <span className="text-zinc-500">•</span>
-          <span>2026</span>
-        </div>
       </motion.div>
 
       <div className="w-full max-w-md flex flex-col items-center gap-8 mb-8">
@@ -60,7 +54,7 @@ const Cover = ({ guestName, handleOpenInvitation }) => {
         >
           <button
             onClick={handleOpenInvitation}
-            className="flex items-center gap-2.5 border-2 border-wedding-600 bg-transparent hover:bg-wedding-600 text-white font-medium px-8 py-3.5 rounded-full shadow hover:scale-105 active:scale-95 transition-all text-sm group"
+            className="flex items-center gap-2.5  border hover:border-0 border-wedding-600 bg-linear-to-r from-wedding-700 via-wedding-400 to-wedding-700 md:bg-none hover:bg-linear-to-r hover:from-wedding-700 hover:via-wedding-400 hover:to-wedding-700 text-white font-medium px-8 py-3.5 rounded-full shadow hover:scale-105 active:scale-95 transition-all text-sm group"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
