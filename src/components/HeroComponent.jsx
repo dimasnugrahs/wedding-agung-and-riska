@@ -65,9 +65,7 @@ const Hero = ({
 
   return (
     <section className="text-center h-screen flex flex-col justify-between bg-black text-white font-inter overflow-hidden">
-      {/* KONTEN ATAS DENGAN SLIDER BACKGROUND DARI PROPS */}
       <div className="relative h-3/4 flex items-end justify-center pb-16 px-4 overflow-hidden">
-        {/* Kontainer Slider Gambar Latar Belakang */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           {sliderImages.map((image, index) => (
             <img

@@ -9,33 +9,33 @@ const Profile = () => {
             <img
               src={imageCover}
               alt="Groom"
-              className="w-full h-full object-cover filter grayscale opacity-40 contrast-125"
+              className="w-full h-full object-cover filter"
             />
-            <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/80"></div>
+            <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-black/70"></div>
           </div>
 
           <div className="relative z-10 space-y-0 w-full">
             <div className="font-angele text-4xl">
               I Gusti Agung Putu Widiana Putra
             </div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-400 font-light mt-2">
+            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-300 font-light">
               (Agung)
             </p>
-            <div className="text-xs font-light leading-relaxed pt-10">
-              <p className="text-zinc-400 text-[10px] uppercase tracking-wider mb-1">
+            <div className="text-xs font-light leading-relaxed pt-5">
+              <p className="text-zinc-300 text-[10px] uppercase tracking-wider mb-0">
                 Putra Pertama dari Pasangan:
               </p>
-              <p className="font-angele text-3xl">I Gusti Agung Winaya</p>
-              <p className="text-zinc-400 font-angele text-xl">&</p>
-              <p className="font-angele text-3xl">Luh Sumerasih</p>
+              <p className="font-angele text-2xl">I Gusti Agung Winaya</p>
+              {/* <p className="text-zinc-400 font-angele text-xl">&</p> */}
+              <p className="font-angele text-2xl">Luh Sumerasih</p>
             </div>
-            <p className="font-light pt-10 text-zinc-200 max-w-sm mx-auto">
+            <p className="font-light pt-5 text-zinc-200 max-w-sm mx-auto">
               Kupang Barat, Kupang, Nusa Tenggara Timur
             </p>
-            <div className="pt-6 flex text-sm">
+            <div className="pt-3 flex text-sm">
               <a
                 href="#"
-                className="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
+                className="inline-flex items-center gap-2 border border-amber-300/20 bg-amber-300/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -62,31 +62,31 @@ const Profile = () => {
             <img
               src={imageCover}
               alt="Bride"
-              className="w-full h-full object-cover filter grayscale opacity-40 contrast-125"
+              className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/80"></div>
           </div>
 
           <div className="relative z-10 space-y-0 w-full">
             <div className="font-angele text-4xl">Ni Wayan Riska Riyani</div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-400 font-light mt-2">
+            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-300 font-light">
               (Riska)
             </p>
-            <div className="text-xs font-light leading-relaxed pt-10">
-              <p className="text-zinc-400 text-[10px] uppercase tracking-wider mb-1">
+            <div className="text-xs font-light leading-relaxed pt-5">
+              <p className="text-zinc-300 text-[10px] uppercase tracking-wider mb-0">
                 Putri Pertama dari Pasangan:
               </p>
-              <p className="font-angele text-3xl">I Made Mastra</p>
-              <p className="text-zinc-400 font-angele text-xl">&</p>
-              <p className="font-angele text-3xl">Ni Nyoman Manis</p>
+              <p className="font-angele text-2xl">I Made Mastra</p>
+              {/* <p className="text-zinc-400 font-angele text-xl">&</p> */}
+              <p className="font-angele text-2xl">Ni Nyoman Manis</p>
             </div>
-            <p className="font-light pt-10 text-zinc-200 max-w-sm mx-auto">
+            <p className="font-light pt-5 text-zinc-200 max-w-sm mx-auto">
               Victoria Road, London, United Kingdom
             </p>
-            <div className="pt-6 flex text-sm">
+            <div className="pt-3 flex text-sm">
               <a
                 href="#"
-                className="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
+                className="inline-flex items-center gap-2 border border-amber-300/20 bg-amber-300/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
