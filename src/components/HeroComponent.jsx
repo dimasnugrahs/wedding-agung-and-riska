@@ -102,7 +102,7 @@ const Hero = ({
         </div>
       </div>
 
-      <div className="grow flex flex-col items-center justify-center bg-white text-black py-8 border-t border-zinc-200 z-10">
+      <div className="grow flex flex-col items-center bg-white text-black py-8 border-t border-zinc-200 z-10">
         <p className="font-angele text-[10px] md:text-xs uppercase tracking-[0.25em] text-zinc-400 font-semibold mb-5">
           Counting Down to Our Special Day.
         </p>
