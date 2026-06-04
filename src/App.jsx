@@ -10,6 +10,7 @@ import Footer from "./components/FooterComponent";
 import BigPhotoComponent from "./components/BigPhotoComponent";
 import AccountNumber from "./components/AccountNumberComponent";
 import Profile from "./components/ProfileComponent";
+import CountdownComponent from "./components/CountdownComponent";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,6 +64,8 @@ const App = () => {
           className="mx-auto space-y-0"
         >
           <Hero />
+
+          <CountdownComponent />
 
           <Profile />
 

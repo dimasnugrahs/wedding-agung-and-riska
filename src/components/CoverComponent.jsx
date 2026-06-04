@@ -22,7 +22,7 @@ const Cover = ({ guestName, handleOpenInvitation }) => {
         className="mt-12"
       >
         <div className="text-xs md:text-sm tracking-[0.3em] uppercase text-zinc-300 font-light flex items-center justify-center gap-2 mt-4">
-          THE WEDDING
+          THE WEDDING OF
         </div>
         <h1 className="font-angele font-light text-5xl md:text-7xl bg-linear-to-r from-wedding-700 via-wedding-300 to-wedding-700 bg-clip-text text-transparent tracking-wide">
           {/* <h1 className="font-angele font-light text-5xl md:text-7xl text-white tracking-wide"> */}
@@ -54,7 +54,7 @@ const Cover = ({ guestName, handleOpenInvitation }) => {
         >
           <button
             onClick={handleOpenInvitation}
-            className="flex items-center gap-2.5  border hover:border-0 border-wedding-600 md:bg-none hover:bg-linear-to-r hover:from-wedding-700 hover:via-wedding-500 hover:to-wedding-700 text-white font-medium px-8 py-3.5 rounded-full shadow hover:scale-105 active:scale-95 transition-all text-sm group"
+            className="flex items-center gap-2.5 border border-amber-300/20 bg-amber-300/10 backdrop-blur-sm hover:border md:bg-none hover:bg-linear-to-r hover:from-wedding-700 hover:via-wedding-500 hover:to-wedding-700 text-white font-medium px-8 py-3.5 rounded-full shadow hover:scale-105 active:scale-95 transition-all text-sm group"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

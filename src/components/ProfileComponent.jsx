@@ -4,7 +4,7 @@ const Profile = () => {
   return (
     <div>
       <div className="block md:hidden">
-        <div className="relative min-h-screen flex flex-col justify-end items-end px-6 py-20 text-white overflow-hidden">
+        <div className="relative min-h-screen flex flex-col justify-end items-end px-6 py-16 text-white overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img
               src={imageCover}
@@ -15,24 +15,24 @@ const Profile = () => {
           </div>
 
           <div className="relative z-10 space-y-0 w-full">
-            <div className="font-angele text-4xl">
+            <div className="font-angele text-3xl">
               I Gusti Agung Putu Widiana Putra
             </div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-300 font-light">
+            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-400 font-light">
               (Agung)
             </p>
-            <div className="text-xs font-light leading-relaxed pt-5">
+            <div className="text-xs font-light leading-relaxed pt-3">
               <p className="text-zinc-300 text-[10px] uppercase tracking-wider mb-0">
                 Putra Pertama dari Pasangan:
               </p>
-              <p className="font-angele text-2xl">I Gusti Agung Winaya</p>
+              <p className="font-angele text-xl">I Gusti Agung Winaya</p>
               {/* <p className="text-zinc-400 font-angele text-xl">&</p> */}
-              <p className="font-angele text-2xl">Luh Sumerasih</p>
+              <p className="font-angele text-xl">Luh Sumerasih</p>
             </div>
-            <p className="font-light pt-5 text-zinc-200 max-w-sm mx-auto">
+            <p className="font-light pt-2 text-zinc-200 max-w-sm mx-auto">
               Kupang Barat, Kupang, Nusa Tenggara Timur
             </p>
-            <div className="pt-3 flex text-sm">
+            <div className="pt-2 flex text-sm">
               <a
                 href="#"
                 className="inline-flex items-center gap-2 border border-amber-300/20 bg-amber-300/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
@@ -57,7 +57,7 @@ const Profile = () => {
           </div>
         </div>
 
-        <div className="relative min-h-screen flex flex-col justify-end items-end px-6 py-20 text-white overflow-hidden border-t border-white/10">
+        <div className="relative min-h-screen flex flex-col justify-end items-end px-6 py-16 text-white overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img
               src={imageCover}
@@ -68,25 +68,25 @@ const Profile = () => {
           </div>
 
           <div className="relative z-10 space-y-0 w-full">
-            <div className="font-angele text-4xl">Ni Wayan Riska Riyani</div>
+            <div className="font-angele text-3xl">Ni Wayan Riska Riyani</div>
             <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-300 font-light">
               (Riska)
             </p>
-            <div className="text-xs font-light leading-relaxed pt-5">
+            <div className="text-xs font-light leading-relaxed pt-3">
               <p className="text-zinc-300 text-[10px] uppercase tracking-wider mb-0">
                 Putri Pertama dari Pasangan:
               </p>
-              <p className="font-angele text-2xl">I Made Mastra</p>
+              <p className="font-angele text-xl">I Made Mastra</p>
               {/* <p className="text-zinc-400 font-angele text-xl">&</p> */}
-              <p className="font-angele text-2xl">Ni Nyoman Manis</p>
+              <p className="font-angele text-xl">Ni Nyoman Manis</p>
             </div>
-            <p className="font-light pt-5 text-zinc-200 max-w-sm mx-auto">
+            <p className="font-light pt-2 text-zinc-200 max-w-sm mx-auto">
               Victoria Road, London, United Kingdom
             </p>
-            <div className="pt-3 flex text-sm">
+            <div className="pt-2 flex text-sm">
               <a
                 href="#"
-                className="inline-flex items-center gap-2 border border-amber-300/20 bg-amber-300/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
+                className="inline-flex items-center gap-2 bg-amber-300/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +132,7 @@ const Profile = () => {
             <div className="pt-4 flex justify-center gap-4 text-sm">
               <a
                 href="#"
-                className="inline-flex items-center gap-2 border border-black/20 px-6 py-2 rounded-full text-zinc-800 hover:bg-zinc-800 hover:border-white hover:text-zinc-100 transition-all group"
+                className="inline-flex items-center gap-2 border border-black/20 px-6 py-2 rounded-full text-zinc-800 hover:bg-zinc-600 hover:border-white hover:text-zinc-100 transition-all group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -172,7 +172,7 @@ const Profile = () => {
             <div className="pt-4 flex justify-center gap-4 text-sm">
               <a
                 href="#"
-                className="inline-flex items-center gap-2 border border-black/20 px-6 py-2 rounded-full text-zinc-800 hover:bg-zinc-800 hover:border-white hover:text-zinc-100 transition-all group"
+                className="inline-flex items-center gap-2 border border-black/20 px-6 py-2 rounded-full text-zinc-800  hover:bg-zinc-600 hover:border-white hover:text-zinc-100 transition-all group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
