@@ -17,7 +17,7 @@ const slideInFromLeft = {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.6,
+      duration: 2,
       ease: [0.25, 1, 0.5, 1],
     },
   },
@@ -29,7 +29,7 @@ const slideInFromRight = {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.6,
+      duration: 2,
       ease: [0.25, 1, 0.5, 1],
     },
   },
@@ -37,7 +37,7 @@ const slideInFromRight = {
 
 const viewportConfig = {
   once: true,
-  amount: 0.15, // Diturunkan sedikit agar teks pertama langsung terpicu saat menyentuh layar
+  amount: 0.75, // Diturunkan sedikit agar teks pertama langsung terpicu saat menyentuh layar
 };
 
 const Profile = () => {
@@ -84,7 +84,10 @@ const Profile = () => {
               {/* <p className="text-zinc-400 font-angele text-xl">&</p> */}
               <p className="font-angele text-xl">Luh Sumerasih</p>
             </motion.div>
-            <motion.p className="font-light pt-2 text-zinc-200 max-w-sm mx-auto">
+            <motion.p
+              variants={slideInFromLeft}
+              className="font-light pt-2 text-zinc-200 max-w-sm mx-auto"
+            >
               Kupang Barat, Kupang, Nusa Tenggara Timur
             </motion.p>
             <motion.div
@@ -115,7 +118,7 @@ const Profile = () => {
           </motion.div>
         </div>
 
-        <div className="relative min-h-screen flex flex-col justify-end items-end px-6 py-16 text-white overflow-hidden">
+        <div className="relative min-h-screen flex flex-col justify-end items-end text-end px-6 py-16 text-white overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img
               src={imageCover}
@@ -161,13 +164,10 @@ const Profile = () => {
             >
               Victoria Road, London, United Kingdom
             </motion.p>
-            <motion.div
-              variants={slideInFromRight}
-              className="pt-2 flex text-sm"
-            >
+            <motion.div variants={slideInFromRight} className="pt-2 text-sm">
               <a
                 href="#"
-                className="inline-flex items-center gap-2 bg-amber-300/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
+                className="inline-flex items-center gap-2 border border-amber-300/20 bg-amber-300/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
