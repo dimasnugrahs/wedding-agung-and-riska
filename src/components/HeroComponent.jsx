@@ -4,6 +4,7 @@ import imageHeroTwo from "../assets/images/agung-hero-2.jpg";
 import imageHeroThree from "../assets/images/agung-hero-3.jpg";
 import imageHeroFour from "../assets/images/agung-hero-4.jpg";
 import imageHeroFive from "../assets/images/agung-hero-5.jpg";
+import { motion } from "motion/react";
 
 const Hero = ({
   title = "Agung & Riska",
@@ -52,9 +53,14 @@ const Hero = ({
         {/* Teks Judul Dinamis dari Props */}
         <div className="relative z-10 space-y-3">
           <div className="text-xs md:text-sm tracking-[0.3em] uppercase text-zinc-300 font-light flex items-center justify-center gap-2"></div>
-          <h1 className="font-display text-5xl md:text-7xl tracking-wide text-white font-light">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="font-display text-5xl md:text-7xl tracking-wide text-white font-light"
+          >
             {title}
-          </h1>
+          </motion.h1>
           <div className="text-xs md:text-sm tracking-[0.3em] uppercase text-zinc-300 font-light flex items-center justify-center gap-2">
             <span>20</span>
             <span className="text-zinc-500">•</span>

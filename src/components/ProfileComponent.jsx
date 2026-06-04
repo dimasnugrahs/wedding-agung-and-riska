@@ -1,4 +1,44 @@
 import imageCover from "../assets/images/agung-hero-1.jpg";
+import { motion } from "motion/react";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // Jeda 0.2 detik antar teks untuk muncul bergantian
+    },
+  },
+};
+
+const slideInFromLeft = {
+  hidden: { opacity: 0, x: -50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 1, 0.5, 1],
+    },
+  },
+};
+
+const slideInFromRight = {
+  hidden: { opacity: 0, x: 50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 1, 0.5, 1],
+    },
+  },
+};
+
+const viewportConfig = {
+  once: true,
+  amount: 0.15, // Diturunkan sedikit agar teks pertama langsung terpicu saat menyentuh layar
+};
 
 const Profile = () => {
   return (
@@ -14,25 +54,43 @@ const Profile = () => {
             <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-black/70"></div>
           </div>
 
-          <div className="relative z-10 space-y-0 w-full">
-            <div className="font-angele text-3xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            variants={containerVariants}
+            className="relative z-10 space-y-0 w-full"
+          >
+            <motion.div
+              variants={slideInFromLeft}
+              className="font-angele text-3xl"
+            >
               I Gusti Agung Putu Widiana Putra
-            </div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-400 font-light">
+            </motion.div>
+            <motion.p
+              variants={slideInFromLeft}
+              className="text-[11px] uppercase tracking-[0.2em] text-zinc-400 font-light"
+            >
               (Agung)
-            </p>
-            <div className="text-xs font-light leading-relaxed pt-3">
+            </motion.p>
+            <motion.div
+              variants={slideInFromLeft}
+              className="text-xs font-light leading-relaxed pt-3"
+            >
               <p className="text-zinc-300 text-[10px] uppercase tracking-wider mb-0">
                 Putra Pertama dari Pasangan:
               </p>
               <p className="font-angele text-xl">I Gusti Agung Winaya</p>
               {/* <p className="text-zinc-400 font-angele text-xl">&</p> */}
               <p className="font-angele text-xl">Luh Sumerasih</p>
-            </div>
-            <p className="font-light pt-2 text-zinc-200 max-w-sm mx-auto">
+            </motion.div>
+            <motion.p className="font-light pt-2 text-zinc-200 max-w-sm mx-auto">
               Kupang Barat, Kupang, Nusa Tenggara Timur
-            </p>
-            <div className="pt-2 flex text-sm">
+            </motion.p>
+            <motion.div
+              variants={slideInFromLeft}
+              className="pt-2 flex text-sm"
+            >
               <a
                 href="#"
                 className="inline-flex items-center gap-2 border border-amber-300/20 bg-amber-300/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
@@ -53,8 +111,8 @@ const Profile = () => {
                 </svg>
                 <span>Agung Widiana</span>
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         <div className="relative min-h-screen flex flex-col justify-end items-end px-6 py-16 text-white overflow-hidden">
@@ -67,23 +125,46 @@ const Profile = () => {
             <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/80"></div>
           </div>
 
-          <div className="relative z-10 space-y-0 w-full">
-            <div className="font-angele text-3xl">Ni Wayan Riska Riyani</div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-300 font-light">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            variants={containerVariants}
+            className="relative z-10 space-y-0 w-full"
+          >
+            <motion.div
+              variants={slideInFromRight}
+              className="font-angele text-3xl"
+            >
+              Ni Wayan Riska Riyani
+            </motion.div>
+            <motion.p
+              variants={slideInFromRight}
+              className="text-[11px] uppercase tracking-[0.2em] text-zinc-300 font-light"
+            >
               (Riska)
-            </p>
-            <div className="text-xs font-light leading-relaxed pt-3">
+            </motion.p>
+            <motion.div
+              variants={slideInFromRight}
+              className="text-xs font-light leading-relaxed pt-3"
+            >
               <p className="text-zinc-300 text-[10px] uppercase tracking-wider mb-0">
                 Putri Pertama dari Pasangan:
               </p>
               <p className="font-angele text-xl">I Made Mastra</p>
               {/* <p className="text-zinc-400 font-angele text-xl">&</p> */}
               <p className="font-angele text-xl">Ni Nyoman Manis</p>
-            </div>
-            <p className="font-light pt-2 text-zinc-200 max-w-sm mx-auto">
+            </motion.div>
+            <motion.p
+              variants={slideInFromRight}
+              className="font-light pt-2 text-zinc-200 max-w-sm mx-auto"
+            >
               Victoria Road, London, United Kingdom
-            </p>
-            <div className="pt-2 flex text-sm">
+            </motion.p>
+            <motion.div
+              variants={slideInFromRight}
+              className="pt-2 flex text-sm"
+            >
               <a
                 href="#"
                 className="inline-flex items-center gap-2 bg-amber-300/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
@@ -104,8 +185,8 @@ const Profile = () => {
                 </svg>
                 <span>Riska Riyani</span>
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
       <section className="hidden md:block text-center py-20 px-4">
