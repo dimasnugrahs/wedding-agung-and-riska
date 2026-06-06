@@ -6,7 +6,9 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2, // Jeda 0.2 detik antar teks untuk muncul bergantian
+      // Jeda kemunculan teks agar fokus ke background terlebih dahulu
+      delayChildren: 0.6,
+      staggerChildren: 0.2,
     },
   },
 };
@@ -37,23 +39,31 @@ const slideInFromRight = {
 
 const viewportConfig = {
   once: true,
-  amount: 0.75, // Diturunkan sedikit agar teks pertama langsung terpicu saat menyentuh layar
+  amount: 0.5, // Disesuaikan agar trigger animasi berjalan lebih pas di perangkat mobile
 };
 
 const Profile = () => {
   return (
-    <div>
+    <div className="">
+      {/* ========================== MOBILE SCREEN ========================== */}
       <div className="block md:hidden">
+        {/* SEKSI 1: PROFIL PRIA (AGUNG) */}
         <div className="relative min-h-screen flex flex-col justify-end items-end px-6 py-16 text-white overflow-hidden">
+          {/* AREA BACKGROUND DENGAN ANIMASI ZOOM-IN */}
           <div className="absolute inset-0 z-0">
-            <img
+            <motion.img
               src={imageCover}
               alt="Groom"
-              className="w-full h-full object-cover filter"
+              className="w-full h-full object-cover"
+              initial={{ scale: 1.15, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={viewportConfig}
+              transition={{ duration: 1.5, ease: [0.25, 1, 0.5, 1] }}
             />
             <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-black/70"></div>
           </div>
 
+          {/* AREA KONTEN TEKS */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -81,15 +91,8 @@ const Profile = () => {
                 Putra Pertama dari Pasangan:
               </p>
               <p className="font-angele text-xl">I Gusti Agung Winaya</p>
-              {/* <p className="text-zinc-400 font-angele text-xl">&</p> */}
               <p className="font-angele text-xl">Luh Sumerasih</p>
             </motion.div>
-            <motion.p
-              variants={slideInFromLeft}
-              className="font-light pt-2 text-zinc-200 max-w-sm mx-auto"
-            >
-              Kupang Barat, Kupang, Nusa Tenggara Timur
-            </motion.p>
             <motion.div
               variants={slideInFromLeft}
               className="pt-2 flex text-sm"
@@ -118,16 +121,23 @@ const Profile = () => {
           </motion.div>
         </div>
 
+        {/* SEKSI 2: PROFIL WANITA (RISKA) */}
         <div className="relative min-h-screen flex flex-col justify-end items-end text-end px-6 py-16 text-white overflow-hidden">
+          {/* AREA BACKGROUND DENGAN ANIMASI ZOOM-IN */}
           <div className="absolute inset-0 z-0">
-            <img
+            <motion.img
               src={imageCover}
               alt="Bride"
               className="w-full h-full object-cover"
+              initial={{ scale: 1.15, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={viewportConfig}
+              transition={{ duration: 1.5, ease: [0.25, 1, 0.5, 1] }}
             />
             <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/80"></div>
           </div>
 
+          {/* AREA KONTEN TEKS */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -155,15 +165,8 @@ const Profile = () => {
                 Putri Pertama dari Pasangan:
               </p>
               <p className="font-angele text-xl">I Made Mastra</p>
-              {/* <p className="text-zinc-400 font-angele text-xl">&</p> */}
               <p className="font-angele text-xl">Ni Nyoman Manis</p>
             </motion.div>
-            <motion.p
-              variants={slideInFromRight}
-              className="font-light pt-2 text-zinc-200 max-w-sm mx-auto"
-            >
-              Victoria Road, London, United Kingdom
-            </motion.p>
             <motion.div variants={slideInFromRight} className="pt-2 text-sm">
               <a
                 href="#"
@@ -189,31 +192,62 @@ const Profile = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* ========================== DESKTOP SCREEN ========================== */}
       <section className="hidden md:block text-center py-20 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 mx-6 md:mx-20">
-          <div className="my-10 md:my-0">
-            <div className="font-angele text-4xl">
+          {/* Sisi Agung (Desktop) */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ staggerChildren: 0.15 }}
+            className="my-10 md:my-0"
+          >
+            <motion.div
+              transition={{ duration: 2, ease: [0.25, 1, 0.5, 1] }}
+              variants={{
+                hidden: { opacity: 0, scale: 0.85 },
+                visible: { opacity: 1, scale: 1 },
+              }}
+              className="font-angele text-4xl"
+            >
               I Gusti Agung Putu Widiana Putra
-            </div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-400 font-light">
+            </motion.div>
+            <motion.p
+              transition={{ duration: 2, ease: [0.25, 1, 0.5, 1] }}
+              variants={{
+                hidden: { opacity: 0, scale: 0.85 },
+                visible: { opacity: 1, scale: 1 },
+              }}
+              className="text-[11px] uppercase tracking-[0.2em] text-zinc-400 font-light"
+            >
               (Agung)
-            </p>
-            <div className="text-xs font-light leading-relaxed mt-10">
+            </motion.p>
+            <motion.div
+              transition={{ duration: 2, ease: [0.25, 1, 0.5, 1] }}
+              variants={{
+                hidden: { opacity: 0, scale: 0.85 },
+                visible: { opacity: 1, scale: 1 },
+              }}
+              className="text-xs font-light leading-relaxed mt-10"
+            >
               <p className="text-zinc-500 text-[10px] uppercase tracking-wider mb-1">
                 Putra Pertama dari Pasangan:
               </p>
               <p className="font-angele text-3xl">I Gusti Agung Winaya</p>
               <p className="text-zinc-400 font-angele text-xl">&</p>
               <p className="font-angele text-3xl">Luh Sumerasih</p>
-            </div>
-
-            <p className="font-light mt-10">
-              Kupang Barat, Kupang, Nusa Tenggara Timur
-            </p>
+            </motion.div>
             <div className="pt-4 flex justify-center gap-4 text-sm">
-              <a
+              <motion.a
+                transition={{ duration: 2, ease: [0.25, 1, 0.5, 1] }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.85 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
                 href="#"
-                className="inline-flex items-center gap-2 border border-black/20 px-6 py-2 rounded-full text-zinc-800 hover:bg-zinc-600 hover:border-white hover:text-zinc-100 transition-all group"
+                className="inline-flex items-center gap-2 border border-black/20 px-6 py-2 rounded-full text-zinc-800 hover:bg-zinc-800 hover:border-white hover:text-zinc-100 transition-all group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -223,37 +257,69 @@ const Profile = () => {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="w-4 h-4 text-zinc-600 group-hover:text-zinc-100 transition-colors"
+                  className="w-4 h-4 text-zinc-800 group-hover:text-zinc-100 transition-colors"
                 >
                   <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                   <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
                 </svg>
                 Agung Widiana
-              </a>
+              </motion.a>
             </div>
-          </div>
-          <div className="my-10 md:my-0">
-            <div className="font-angele text-4xl">Ni Wayan Riska Riyani</div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-400 font-light">
+          </motion.div>
+
+          {/* Sisi Riska (Desktop) */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ staggerChildren: 0.15 }}
+            className="my-10 md:my-0"
+          >
+            <motion.div
+              transition={{ duration: 2, ease: [0.25, 1, 0.5, 1] }}
+              variants={{
+                hidden: { opacity: 0, scale: 0.85 },
+                visible: { opacity: 1, scale: 1 },
+              }}
+              className="font-angele text-4xl"
+            >
+              Ni Wayan Riska Riyani
+            </motion.div>
+            <motion.p
+              transition={{ duration: 2, ease: [0.25, 1, 0.5, 1] }}
+              variants={{
+                hidden: { opacity: 0, scale: 0.85 },
+                visible: { opacity: 1, scale: 1 },
+              }}
+              className="text-[11px] uppercase tracking-[0.2em] text-zinc-400 font-light"
+            >
               (Riska)
-            </p>
-            <div className="text-xs font-light leading-relaxed mt-10">
+            </motion.p>
+            <motion.div
+              transition={{ duration: 2, ease: [0.25, 1, 0.5, 1] }}
+              variants={{
+                hidden: { opacity: 0, scale: 0.85 },
+                visible: { opacity: 1, scale: 1 },
+              }}
+              className="text-xs font-light leading-relaxed mt-10"
+            >
               <p className="text-zinc-500 text-[10px] uppercase tracking-wider mb-1">
                 Putri Pertama dari Pasangan:
               </p>
               <p className="font-angele text-3xl">I Made Mastra</p>
               <p className="text-zinc-400 font-angele text-xl">&</p>
               <p className="font-angele text-3xl">Ni Nyoman Manis</p>
-            </div>
-
-            <p className="font-light mt-10">
-              Victoria Road, London, United Kingdom
-            </p>
+            </motion.div>
             <div className="pt-4 flex justify-center gap-4 text-sm">
-              <a
+              <motion.a
+                transition={{ duration: 2, ease: [0.25, 1, 0.5, 1] }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.85 },
+                  visible: { opacity: 1, scale: 1 },
+                }}
                 href="#"
-                className="inline-flex items-center gap-2 border border-black/20 px-6 py-2 rounded-full text-zinc-800  hover:bg-zinc-600 hover:border-white hover:text-zinc-100 transition-all group"
+                className="inline-flex items-center gap-2 border border-black/20 px-6 py-2 rounded-full text-zinc-800  hover:bg-zinc-800 hover:border-white hover:text-zinc-100 transition-all group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -263,16 +329,16 @@ const Profile = () => {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="w-4 h-4 text-zinc-600 group-hover:text-zinc-100 transition-colors"
+                  className="w-4 h-4 text-zinc-800 group-hover:text-zinc-100 transition-colors"
                 >
                   <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                   <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
                 </svg>
                 Riska Riyani
-              </a>
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

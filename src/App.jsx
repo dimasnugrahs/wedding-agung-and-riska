@@ -11,6 +11,7 @@ import BigPhotoComponent from "./components/BigPhotoComponent";
 import AccountNumber from "./components/AccountNumberComponent";
 import Profile from "./components/ProfileComponent";
 import CountdownComponent from "./components/CountdownComponent";
+import LocationComponent from "./components/LocationComponent";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,11 +66,12 @@ const App = () => {
         >
           <Hero />
 
-          <CountdownComponent />
+
+          <WishSection />
 
           <Profile />
 
-          <WishSection />
+          <LocationComponent />
 
           <Gallery />
 
