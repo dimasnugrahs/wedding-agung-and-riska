@@ -1,4 +1,4 @@
-import imageCover from "../assets/images/agung-hero-1.jpg";
+import imageCover from "../assets/images/agung-cover-compressed.webp";
 import { motion } from "motion/react";
 
 const containerVariants = {
@@ -6,7 +6,6 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      // Jeda kemunculan teks agar fokus ke background terlebih dahulu
       delayChildren: 0.6,
       staggerChildren: 0.2,
     },
@@ -39,17 +38,19 @@ const slideInFromRight = {
 
 const viewportConfig = {
   once: true,
-  amount: 0.5, // Disesuaikan agar trigger animasi berjalan lebih pas di perangkat mobile
+  amount: 0.5,
+};
+
+const viewportConfigImg = {
+  once: true,
+  amount: 0.1,
 };
 
 const Profile = () => {
   return (
-    <div className="">
-      {/* ========================== MOBILE SCREEN ========================== */}
+    <div className="bg-black md:bg-white">
       <div className="block md:hidden">
-        {/* SEKSI 1: PROFIL PRIA (AGUNG) */}
         <div className="relative min-h-screen flex flex-col justify-end items-end px-6 py-16 text-white overflow-hidden">
-          {/* AREA BACKGROUND DENGAN ANIMASI ZOOM-IN */}
           <div className="absolute inset-0 z-0">
             <motion.img
               src={imageCover}
@@ -57,7 +58,7 @@ const Profile = () => {
               className="w-full h-full object-cover"
               initial={{ scale: 1.15, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
-              viewport={viewportConfig}
+              viewport={viewportConfigImg}
               transition={{ duration: 1.5, ease: [0.25, 1, 0.5, 1] }}
             />
             <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-black/70"></div>
