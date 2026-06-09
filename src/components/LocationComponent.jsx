@@ -1,4 +1,41 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import imageCover from "../assets/images/agung-cover-compressed.webp";
+import { motion } from "motion/react";
+
+// Kontainer Induk: Mengontrol kapan animasi anak dimulai & jeda antar elemen anak
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.6, // Background dimuat dulu baru teks menyusul
+      staggerChildren: 0.2, // Jeda 0.2 detik bergiliran dari atas ke bawah
+    },
+  },
+};
+
+// Varian Anak: Efek kemunculan teks (meluncur halus dari bawah ke atas)
+const textFadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.2,
+      ease: [0.25, 1, 0.5, 1], // Kurva pengereman halus
+    },
+  },
+};
+
+const viewportConfig = {
+  once: true,
+  amount: 0.3, // Diturunkan ke 0.3 agar teks langsung terpicu nyaman di mobile
+};
+
+const viewportConfigImg = {
+  once: true,
+  amount: 0.1,
+};
 
 const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
   const [timeLeft, setTimeLeft] = useState({
@@ -32,97 +69,143 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
   }, [targetDate]);
 
   return (
-    <section className="flex justify-center bg-linear-to-b from-zinc-50 to-white text-center py-20 px-6 border-t border-zinc-100">
-      <div className="max-w-xl mx-auto space-y-10">
-        <div className="flex items-center justify-center gap-3 my-4">
-          <div className="h-[1px] w-16 bg-zinc-200"></div>
-          <span className="text-zinc-400 text-xs tracking-widest font-light">
-            PAWIWAHAN & RESEPSI
-          </span>
-          <div className="h-[1px] w-16 bg-zinc-200"></div>
-        </div>
-
-        <div className="bg-white md:px-24 p-8 rounded-xl border border-zinc-200/60 shadow-sm space-y-6">
-          <h3 className="text-xs uppercase tracking-[0.25em] text-zinc-400 font-semibold">
-            Tempat Upacara
-          </h3>
-
-          <div className="space-y-3">
-            <h4 className="text-zinc-900 font-serif text-xl md:text-2xl font-normal tracking-wide">
-              Griya Gede Batuan
-            </h4>
-            <p className="text-zinc-500 text-xs md:text-sm max-w-sm mx-auto leading-relaxed font-light">
-              Jl. Raya Batuan, Sukawati, Kec. Gianyar, Kabupaten Gianyar, Bali
-            </p>
+    <section>
+      <div>
+        <div className="relative min-h-screen flex flex-col justify-start items-start md:justify-center md:text-center md:items-center px-6 py-16 text-white overflow-hidden">
+          {/* AREA BACKGROUND DENGAN ANIMASI ZOOM IN */}
+          <div className="absolute inset-0 z-0">
+            <motion.img
+              src={imageCover}
+              alt="Groom"
+              className="w-full h-full object-cover"
+              initial={{ scale: 1.15, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={viewportConfigImg}
+              transition={{ duration: 1.5, ease: [0.25, 1, 0.5, 1] }}
+            />
+            <div className="absolute inset-0 bg-linear-to-b from-slate-950/80 via-slate-950/80 to-slate-950/80"></div>
           </div>
 
-          <div className="space-y-3">
-            <p className="text-zinc-500  max-w-sm mx-auto leading-relaxed font-light">
-              Kamis, 20 Oktober 2026 <span className="text-zinc-500">•</span> 09.00 - Selesai
-            </p>
-          </div>
+          {/* AREA KONTEN TEKS (KONTAINER INDUK) */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            variants={containerVariants}
+            className="relative z-10 space-y-0 w-full md:w-1/2"
+          >
+            {/* Teks 1: Judul Save The Date */}
+            <motion.div variants={textFadeIn} className="text-3xl">
+              <div className="block md:hidden">SAVE</div>
+              <div className="block md:hidden">THE DATE</div>
+              <div className="hidden md:block">SAVE THE DATE</div>
+              <div className="border border-b border-zinc-300 my-4 md:my-8"></div>
+            </motion.div>
 
-          <div className="pt-2">
-            <a
-              href="https://maps.google.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-zinc-800 hover:bg-black text-white text-[11px] tracking-widest uppercase font-medium px-6 py-3 rounded-full transition-all shadow-sm group"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"
+            {/* Teks 2: Pembukaan Undang */}
+            <motion.div variants={textFadeIn} className="font-light">
+              <div className="uppercase leading-relaxed">
+                Atas Asung Kerta Wara Nugraha Ida Sang Hyang Widi Wasa/Tuhan
+                Yang Maha Esa, Kami Bermaksud Mengundang Bapak/Ibu/Saudara/I,
+                Pada Acara Pawiwahan (Pernikahan) Putra & Putri Kami Yang Akan
+                Dilaksanakan Pada:
+              </div>
+              <div className="border md:border-0 border-b border-zinc-300 my-4 md:my-8"></div>
+            </motion.div>
+
+            {/* Teks 3: Detail Tanggal & Jam */}
+            <motion.div variants={textFadeIn} className="">
+              <div className="text-2xl">SELASA, 20 OKTOBER 2026</div>
+              <div className="text-xl">08.00 WITA - SELESAI</div>
+            </motion.div>
+
+            {/* Teks 4: Tempat Pelaksanaan */}
+            <motion.div variants={textFadeIn} className="mt-4">
+              <div className="text-2xl">RUMAH MEMPELAI PRIA</div>
+              <div className="text-xl">
+                Jl. Raya Kupang Barat, Jembrana, Bali
+              </div>
+            </motion.div>
+
+            {/* Teks 5: Tombol Maps */}
+            <motion.div variants={textFadeIn} className="pt-2 my-4">
+              <a
+                href="https://maps.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-zinc-500/20 bg-zinc-600/10 hover:border-zinc-500/50 hover:bg-zinc-600/40 text-white text-[11px] tracking-widest uppercase font-medium px-6 py-3 rounded-xl transition-all shadow-sm group"
               >
-                <polygon points="3 11 22 2 13 21 11 13 3 11" />
-              </svg>
-              Petunjuk Lokasi
-            </a>
-          </div>
-          <div className="grid grid-cols-4 gap-4 md:gap-8 max-w-sm w-full px-6 mt-10">
-            {/* Hari */}
-            <div className="flex flex-col items-center">
-              <span className="font-angele text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"
+                >
+                  <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                </svg>
+                Petunjuk Lokasi
+              </a>
+              <div className="border border-b border-zinc-300 my-4 md:my-8"></div>
+            </motion.div>
+
+            {/* Teks 6: Penutup Doa Restu */}
+            <motion.div variants={textFadeIn} className="font-light">
+              <div className="uppercase leading-relaxed">
+                Merupakan Suatu Kehormatan Dan Kebahagiaan Bagi Kami Apabila
+                Bapak/Ibu/Saudara/I Berkenan Hadir Untuk Memberikan Doa Restu
+                Kepada Putra Dan Putri Kami.
+              </div>
+              <div className="uppercase mt-2">
+                Atas Kehadiran Dan Doa Restunya Kami Ucapkan Terima Kasih.
+              </div>
+              <div className="border md:border-0 border-b border-zinc-300 my-4 md:my-8"></div>
+            </motion.div>
+
+            {/* Teks 7: Angka Countdown */}
+            <motion.div
+              variants={textFadeIn}
+              className="font-light grid grid-cols-4 text-3xl px-5 text-center mt-8"
+            >
+              <div className="uppercase">
                 {String(timeLeft.days).padStart(2, "0")}
-              </span>
-              <span className="text-[10px] uppercase tracking-widest text-zinc-400 mt-1">
-                Days
-              </span>
-            </div>
-
-            {/* Jam */}
-            <div className="flex flex-col items-center border-zinc-100">
-              <span className="font-angele text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
+              </div>
+              <div className="uppercase">
                 {String(timeLeft.hours).padStart(2, "0")}
-              </span>
-              <span className="text-[10px] uppercase tracking-widest text-zinc-400 mt-1">
-                Hours
-              </span>
-            </div>
-
-            {/* Menit */}
-            <div className="flex flex-col items-center border-zinc-100">
-              <span className="font-angele text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
+              </div>
+              <div className="uppercase">
                 {String(timeLeft.minutes).padStart(2, "0")}
-              </span>
-              <span className="text-[10px] uppercase tracking-widest text-zinc-400 mt-1">
-                Mins
-              </span>
-            </div>
-
-            {/* Detik */}
-            <div className="flex flex-col items-center border-zinc-100">
-              <span className="font-angele text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight animate-pulse">
+              </div>
+              <div className="uppercase">
                 {String(timeLeft.seconds).padStart(2, "0")}
-              </span>
-              <span className="text-[10px] uppercase tracking-widest text-zinc-400 mt-1">
-                Secs
-              </span>
-            </div>
-          </div>
+              </div>
+            </motion.div>
+
+            {/* Teks 8: Label Countdown (Days, Hours, Mins, Secs) */}
+            <motion.div
+              variants={textFadeIn}
+              className="font-light grid grid-cols-4 text-3xl px-5 text-center mb-8"
+            >
+              <div className="uppercase">
+                <span className="text-sm text-zinc-400 mt-1">Days</span>
+              </div>
+              <div className="uppercase">
+                <span className="text-sm text-zinc-400 mt-1">Hours</span>
+              </div>
+              <div className="uppercase">
+                <span className="text-sm text-zinc-400 mt-1">Mins</span>
+              </div>
+              <div className="uppercase">
+                <span className="text-sm text-zinc-400 mt-1">Secs</span>
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={textFadeIn}
+              className="border md:border-0 border-b border-zinc-300 my-4 md:my-8"
+            ></motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

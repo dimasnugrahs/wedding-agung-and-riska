@@ -100,7 +100,7 @@ const Profile = () => {
             >
               <a
                 href="#"
-                className="inline-flex items-center gap-2 border border-amber-300/20 bg-amber-300/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
+                className="inline-flex items-center gap-2 border border-zinc-500/20 bg-zinc-600/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +171,7 @@ const Profile = () => {
             <motion.div variants={slideInFromRight} className="pt-2 text-sm">
               <a
                 href="#"
-                className="inline-flex items-center gap-2 border border-amber-300/20 bg-amber-300/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
+                className="inline-flex items-center gap-2 border border-zinc-500/20 bg-zinc-600/10 px-6 py-2 rounded-full text-white backdrop-blur-sm group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

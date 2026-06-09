@@ -7,7 +7,7 @@ const Wish = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
       transition={{ staggerChildren: 0.15 }}
-      className="bg-white md:bg-linear-to-b md:from-zinc-50 md:to-white text-center py-20 px-4 border-t border-zinc-100"
+      className="bg-black md:bg-linear-to-b md:from-zinc-50 md:to-white text-center py-20 px-4 border-t border-zinc-100"
     >
       <div className="max-w-xl mx-auto space-y-10">
         <div className="space-y-4 px-4">
@@ -30,6 +30,7 @@ const Wish = () => {
               hidden: { opacity: 0, scale: 0.85 },
               visible: { opacity: 1, scale: 1 },
             }}
+            className="text-white md:text-zinc-900"
           >
             "Ihaiva stam ma vi yaustam, visvam ayur vyasnutam. Krindantau
             putrair naptrbhih, Modamanau sve grhe."
@@ -41,7 +42,7 @@ const Wish = () => {
               hidden: { opacity: 0, scale: 0.85 },
               visible: { opacity: 1, scale: 1 },
             }}
-            className="text-zinc-600 font-light text-xs md:text-sm max-w-md mx-auto leading-relaxed"
+            className="text-zinc-400 md:text-zinc-600 font-light text-xs md:text-sm max-w-md mx-auto leading-relaxed"
           >
             Wahai Pasangan suami-isteri, semoga kalian tetap bersatu dan tidak
             pernah terpisahkan. Semoga kalian mencapai hidup penuh kebahagiaan,
@@ -54,7 +55,7 @@ const Wish = () => {
               hidden: { opacity: 0, scale: 0.85 },
               visible: { opacity: 1, scale: 1 },
             }}
-            className="text-zinc-900 font-medium tracking-[0.2em] text-[10px] uppercase pt-2"
+            className="text-white md:text-zinc-900 font-medium tracking-[0.2em] text-[10px] uppercase pt-2"
           >
             — Rigweda X. 85. 42 —
           </motion.p>
