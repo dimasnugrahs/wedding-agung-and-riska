@@ -72,7 +72,7 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
     <section>
       <div>
         <div className="relative min-h-screen flex flex-col justify-start items-start md:justify-center md:text-center md:items-center px-6 py-16 text-white overflow-hidden">
-          {/* AREA BACKGROUND DENGAN ANIMASI ZOOM IN */}
+          
           <div className="absolute inset-0 z-0">
             <motion.img
               src={imageCover}

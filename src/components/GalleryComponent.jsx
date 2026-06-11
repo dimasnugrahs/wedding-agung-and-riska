@@ -109,7 +109,7 @@ const Gallery = () => {
 
             <button
               onClick={prevSlide}
-              className="absolute left-4 md:left-8 text-white/80 hover:text-white bg-zinc-900/40 hover:bg-zinc-800/60 p-3 rounded-full transition-all z-50 cursor-pointer md:backdrop-blur-xs"
+              className="absolute left-4 md:left-8 text-white/80 hover:text-white md:bg-zinc-900/40 hover:bg-zinc-800/60 p-3 rounded-full transition-all z-50 cursor-pointer md:backdrop-blur-xs"
               aria-label="Previous photo"
             >
               <svg
