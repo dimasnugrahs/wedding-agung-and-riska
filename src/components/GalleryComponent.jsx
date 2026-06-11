@@ -78,9 +78,6 @@ const Gallery = () => {
         </p>
       </div>
 
-      {/* ==========================================================================
-         KOMPONEN POP-UP MODAL (LIGHTBOX DENGAN NAVIGASI SLIDER)
-         ========================================================================== */}
       <AnimatePresence>
         {currentIndex !== null && (
           <motion.div
@@ -90,7 +87,6 @@ const Gallery = () => {
             onClick={() => setCurrentIndex(null)}
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 cursor-zoom-out select-none"
           >
-            {/* Tombol Close Silang */}
             <button
               onClick={() => setCurrentIndex(null)}
               className="absolute top-6 right-6 text-white/60 hover:text-white transition-colors p-2 z-50 cursor-pointer"
@@ -111,10 +107,9 @@ const Gallery = () => {
               </svg>
             </button>
 
-            {/* TOMBOL PANAH KIRI (PREVIOUS) */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 md:left-8 text-white/50 hover:text-white md:bg-zinc-900/40 hover:bg-zinc-800/60 p-3 rounded-full transition-all z-50 cursor-pointer md:backdrop-blur-xs"
+              className="absolute left-4 md:left-8 text-white/50 hover:text-white bg-zinc-900/40 hover:bg-zinc-800/60 p-3 rounded-full transition-all z-50 cursor-pointer backdrop-blur-xs"
               aria-label="Previous photo"
             >
               <svg
@@ -133,10 +128,7 @@ const Gallery = () => {
               </svg>
             </button>
 
-            {/* KONTAINER UTAMA GAMBAR BESAR */}
             <motion.div
-              // Menggunakan key={currentIndex} agar Framer Motion tahu gambar berubah
-              // dan memicu animasi fade-in ulang yang halus saat berganti foto
               key={currentIndex}
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -151,16 +143,14 @@ const Gallery = () => {
                 className="w-full h-full object-contain max-h-[80vh]"
               />
 
-              {/* Indikator Angka Posisi (Contoh: 1 / 10) */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 px-3 py-1 rounded-full text-xs text-zinc-300 tracking-wider">
                 {currentIndex + 1} / {weddingPhotos.length}
               </div>
             </motion.div>
 
-            {/* TOMBOL PANAH KANAN (NEXT) */}
             <button
               onClick={nextSlide}
-              className="absolute right-4 md:right-8 text-white/50 hover:text-white bg-transparent md:bg-zinc-900/40 hover:bg-zinc-800/60 p-3 rounded-full transition-all z-50 cursor-pointer md:backdrop-blur-xs"
+              className="absolute right-4 md:right-8 text-white/50 hover:text-white bg-zinc-900/40 hover:bg-zinc-800/60 p-3 rounded-full transition-all z-50 cursor-pointer backdrop-blur-xs"
               aria-label="Next photo"
             >
               <svg
