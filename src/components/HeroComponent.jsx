@@ -26,7 +26,7 @@ const Hero = ({
       setCurrentImageIndex(
         (prevIndex) => (prevIndex + 1) % sliderImages.length,
       );
-    }, 2000);
+    }, 4000);
 
     return () => clearInterval(sliderTimer);
   }, [sliderImages.length]);
@@ -57,7 +57,7 @@ const Hero = ({
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="font-display text-5xl md:text-7xl tracking-wide text-white font-light"
+            className="font-lobster text-5xl md:text-7xl tracking-wide text-white font-light"
           >
             {title}
           </motion.h1>

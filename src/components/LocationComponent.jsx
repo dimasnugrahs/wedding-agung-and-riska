@@ -72,7 +72,6 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
     <section>
       <div>
         <div className="relative min-h-screen flex flex-col justify-start items-start md:justify-center md:text-center md:items-center px-6 py-16 text-white overflow-hidden">
-          
           <div className="absolute inset-0 z-0">
             <motion.img
               src={imageCover}
@@ -96,35 +95,69 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
           >
             {/* Teks 1: Judul Save The Date */}
             <motion.div variants={textFadeIn} className="text-3xl">
-              <div className="block md:hidden">SAVE</div>
-              <div className="block md:hidden">THE DATE</div>
+              <div className="block font-display md:hidden">SAVE THE DATE</div>
+              <div className="block md:hidden"></div>
               <div className="hidden md:block">SAVE THE DATE</div>
               <div className="border border-b border-zinc-300 my-4 md:my-8"></div>
             </motion.div>
 
             {/* Teks 2: Pembukaan Undang */}
-            <motion.div variants={textFadeIn} className="font-light">
-              <div className="uppercase leading-relaxed">
+            <motion.div variants={textFadeIn} className="text-lg">
+              <div className="leading-relaxed">
                 Atas Asung Kerta Wara Nugraha Ida Sang Hyang Widi Wasa/Tuhan
-                Yang Maha Esa, Kami Bermaksud Mengundang Bapak/Ibu/Saudara/I,
-                Pada Acara Pawiwahan (Pernikahan) Putra & Putri Kami Yang Akan
-                Dilaksanakan Pada:
+                Yang Maha Esa, Kami bermaksud mengundang Bapak/Ibu/Saudara/i
+                untuk hadir pada acara Pawiwahan (Pernikahan) putra dan putri
+                kami yang akan dilaksanakan pada:
               </div>
               <div className="border md:border-0 border-b border-zinc-300 my-4 md:my-8"></div>
             </motion.div>
 
             {/* Teks 3: Detail Tanggal & Jam */}
             <motion.div variants={textFadeIn} className="">
-              <div className="text-2xl">SELASA, 20 OKTOBER 2026</div>
-              <div className="text-xl">08.00 WITA - SELESAI</div>
+              <div className="text-xl">Acara di Rumah Mempelai Wanita</div>
+              <div className="text-lg">Selasa, 20 Oktober 2026</div>
+              <div className="text-lg">08.00 WITA - Selesai</div>
             </motion.div>
 
             {/* Teks 4: Tempat Pelaksanaan */}
-            <motion.div variants={textFadeIn} className="mt-4">
-              <div className="text-2xl">RUMAH MEMPELAI PRIA</div>
-              <div className="text-xl">
-                Jl. Raya Kupang Barat, Jembrana, Bali
-              </div>
+            <motion.div variants={textFadeIn} className="mt-0">
+              <div className="text-lg">Rumah Mempelai Wanita</div>
+              <div className="text-lg">Jembrana, Bali</div>
+            </motion.div>
+
+            {/* Teks 5: Tombol Maps */}
+            <motion.div variants={textFadeIn} className="pt-2 my-4">
+              <a
+                href="https://maps.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-zinc-500/20 bg-zinc-600/10 hover:border-zinc-500/50 hover:bg-zinc-600/40 text-white text-[11px] tracking-widest uppercase font-medium px-6 py-3 rounded-xl transition-all shadow-sm group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"
+                >
+                  <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                </svg>
+                Petunjuk Lokasi
+              </a>
+              <div className="border border-b border-zinc-300 my-4 md:my-8"></div>
+            </motion.div>
+
+            <motion.div variants={textFadeIn} className="">
+              <div className="text-xl">Acara di Rumah Mempelai Pria</div>
+              <div className="text-lg">Selasa, 20 Oktober 2026</div>
+              <div className="text-lg">08.00 WITA - Selesai</div>
+            </motion.div>
+
+            {/* Teks 4: Tempat Pelaksanaan */}
+            <motion.div variants={textFadeIn} className="mt-0">
+              <div className="text-lg">Rumah Mempelai Pria</div>
+              <div className="text-lg">Jembrana, Bali</div>
             </motion.div>
 
             {/* Teks 5: Tombol Maps */}
@@ -151,14 +184,14 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
             </motion.div>
 
             {/* Teks 6: Penutup Doa Restu */}
-            <motion.div variants={textFadeIn} className="font-light">
-              <div className="uppercase leading-relaxed">
-                Merupakan Suatu Kehormatan Dan Kebahagiaan Bagi Kami Apabila
-                Bapak/Ibu/Saudara/I Berkenan Hadir Untuk Memberikan Doa Restu
-                Kepada Putra Dan Putri Kami.
+            <motion.div variants={textFadeIn} className="text-lg">
+              <div className="leading-relaxed">
+                Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+                Bapak/Ibu/Saudara/i berkenan hadir serta memberikan doa restu
+                kepada kedua mempelai.
               </div>
-              <div className="uppercase mt-2">
-                Atas Kehadiran Dan Doa Restunya Kami Ucapkan Terima Kasih.
+              <div className="mt-2">
+                Atas kehadiran dan doa restunya, kami ucapkan terima kasih.
               </div>
               <div className="border md:border-0 border-b border-zinc-300 my-4 md:my-8"></div>
             </motion.div>

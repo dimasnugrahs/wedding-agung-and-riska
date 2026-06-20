@@ -74,7 +74,7 @@ const Profile = () => {
           >
             <motion.div
               variants={slideInFromLeft}
-              className="font-angele text-3xl"
+              className="font-lobster text-2xl"
             >
               I Gusti Agung Putu Widiana Putra
             </motion.div>
@@ -148,7 +148,7 @@ const Profile = () => {
           >
             <motion.div
               variants={slideInFromRight}
-              className="font-angele text-3xl"
+              className="font-lobster text-2xl"
             >
               Ni Wayan Riska Riyani
             </motion.div>

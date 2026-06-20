@@ -24,9 +24,9 @@ const Cover = ({ guestName, handleOpenInvitation }) => {
         <div className="text-xs md:text-sm tracking-[0.3em] uppercase text-zinc-300 font-light flex items-center justify-center gap-2 mt-4">
           THE WEDDING OF
         </div>
-        <h1 className="font-angele font-light text-5xl md:text-7xl bg-linear-to-r from-wedding-700 via-wedding-300 to-wedding-700 bg-clip-text text-transparent tracking-wide">
-          {/* <h1 className="font-angele font-light text-5xl md:text-7xl text-white tracking-wide"> */}
-          AGUNG & RISKA
+        {/* <h1 className="font-angele font-light text-5xl md:text-7xl bg-linear-to-r from-wedding-700 via-wedding-300 to-wedding-700 bg-clip-text text-transparent tracking-wide"> */}
+        <h1 className="font-lobster font-light text-4xl md:text-7xl  bg-clip-text text-white tracking-wide">
+          Agung & Riska
         </h1>
       </motion.div>
 
