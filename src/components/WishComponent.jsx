@@ -42,7 +42,7 @@ const Wish = () => {
               hidden: { opacity: 0, scale: 0.85 },
               visible: { opacity: 1, scale: 1 },
             }}
-            className="text-zinc-400 md:text-zinc-600 font-light max-w-xl mx-auto leading-relaxed"
+            className="text-zinc-400 md:text-zinc-600 font-light text-xs md:text-sm max-w-xl mx-auto leading-relaxed"
           >
             Wahai Pasangan suami-isteri, semoga kalian tetap bersatu dan tidak
             pernah terpisahkan. Semoga kalian mencapai hidup penuh kebahagiaan,
