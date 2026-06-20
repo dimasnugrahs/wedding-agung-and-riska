@@ -38,7 +38,7 @@ const slideInFromRight = {
 
 const viewportConfig = {
   once: true,
-  amount: 0.2,
+  amount: 0.1,
 };
 
 const viewportConfigImg = {
@@ -91,8 +91,8 @@ const Profile = () => {
               <p className="text-zinc-300 text-[10px] uppercase tracking-wider mb-0">
                 Putra Pertama dari Pasangan:
               </p>
-              <p className="">I Gusti Agung Winaya</p>
-              <p className="">Luh Sumerasih</p>
+              <p className="text-sm">I Gusti Agung Winaya</p>
+              <p className="text-sm">Luh Sumerasih</p>
             </motion.div>
             <motion.div
               variants={slideInFromLeft}
@@ -165,8 +165,8 @@ const Profile = () => {
               <p className="text-zinc-300 text-[10px] uppercase tracking-wider mb-0">
                 Putri Pertama dari Pasangan:
               </p>
-              <p className="">I Made Mastra</p>
-              <p className="">Ni Nyoman Manis</p>
+              <p className="text-sm">I Made Mastra</p>
+              <p className="text-sm">Ni Nyoman Manis</p>
             </motion.div>
             <motion.div variants={slideInFromRight} className="pt-2 text-sm">
               <a

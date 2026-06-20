@@ -102,7 +102,7 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
             </motion.div>
 
             {/* Teks 2: Pembukaan Undang */}
-            <motion.div variants={textFadeIn} className="">
+            <motion.div variants={textFadeIn} className="text-sm">
               <div className="leading-relaxed font-light text-zinc-300">
                 Atas Asung Kerta Wara Nugraha Ida Sang Hyang Widi Wasa/Tuhan
                 Yang Maha Esa, Kami bermaksud mengundang Bapak/Ibu/Saudara/i
@@ -114,18 +114,18 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
 
             {/* Teks 3: Detail Tanggal & Jam */}
             <motion.div variants={textFadeIn} className="">
-              <div className="text-xl">Acara di Rumah Mempelai Wanita</div>
-              <div className="font-light text-zinc-300">
+              <div className="text-lg">Acara di Rumah Mempelai Wanita</div>
+              <div className="font-light text-zinc-300 text-sm">
                 Selasa, 20 Oktober 2026
               </div>
-              <div className="font-light text-zinc-300 mb-1">
+              <div className="font-light text-zinc-300 mb-1 text-sm">
                 08.00 WITA - Selesai
               </div>
             </motion.div>
 
             {/* Teks 4: Tempat Pelaksanaan */}
             <motion.div variants={textFadeIn} className="mt-0">
-              <div className="text-lg">Rumah Mempelai Wanita</div>
+              <div className="text-md">Rumah Mempelai Wanita</div>
               <div className="font-light text-zinc-300">Jembrana, Bali</div>
             </motion.div>
 
@@ -153,19 +153,21 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
             </motion.div>
 
             <motion.div variants={textFadeIn} className="">
-              <div className="text-xl">Acara di Rumah Mempelai Pria</div>
-              <div className="font-light text-zinc-300">
+              <div className="text-lg">Acara di Rumah Mempelai Pria</div>
+              <div className="font-light text-zinc-300 text-sm">
                 Selasa, 20 Oktober 2026
               </div>
-              <div className="font-light text-zinc-300 mb-1">
+              <div className="font-light text-zinc-300 mb-1 text-sm">
                 08.00 WITA - Selesai
               </div>
             </motion.div>
 
             {/* Teks 4: Tempat Pelaksanaan */}
             <motion.div variants={textFadeIn} className="mt-0">
-              <div className="text-lg">Rumah Mempelai Pria</div>
-              <div className="font-light text-zinc-300">Jembrana, Bali</div>
+              <div className="text-md">Rumah Mempelai Pria</div>
+              <div className="font-light text-zinc-300 text-sm">
+                Jembrana, Bali
+              </div>
             </motion.div>
 
             {/* Teks 5: Tombol Maps */}
@@ -193,12 +195,12 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
 
             {/* Teks 6: Penutup Doa Restu */}
             <motion.div variants={textFadeIn} className="">
-              <div className="leading-relaxed font-light text-zinc-300">
+              <div className="leading-relaxed font-light text-zinc-300 text-sm">
                 Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
                 Bapak/Ibu/Saudara/i berkenan hadir serta memberikan doa restu
                 kepada kedua mempelai.
               </div>
-              <div className="mt-2 font-light text-zinc-300">
+              <div className="mt-2 font-light text-zinc-300 text-sm">
                 Atas kehadiran dan doa restunya, kami ucapkan terima kasih.
               </div>
               <div className="border md:border-0 border-b border-zinc-300 my-4 md:my-8"></div>
