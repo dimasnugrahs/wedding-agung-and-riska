@@ -9,7 +9,7 @@ const Wish = () => {
       transition={{ staggerChildren: 0.15 }}
       className="bg-black md:bg-linear-to-b md:from-zinc-50 md:to-white text-center py-20 px-4 border-t border-zinc-100"
     >
-      <div className="max-w-xl mx-auto space-y-10">
+      <div className="max-w-2xl mx-auto space-y-10">
         <div className="space-y-4 px-4">
           <motion.svg
             transition={{ duration: 2, ease: [0.25, 1, 0.5, 1] }}
@@ -30,7 +30,7 @@ const Wish = () => {
               hidden: { opacity: 0, scale: 0.85 },
               visible: { opacity: 1, scale: 1 },
             }}
-            className="text-white md:text-zinc-900"
+            className="text-white text-[20px] md:text-zinc-900"
           >
             "Ihaiva stam ma vi yaustam, visvam ayur vyasnutam. Krindantau
             putrair naptrbhih, Modamanau sve grhe."
@@ -42,7 +42,7 @@ const Wish = () => {
               hidden: { opacity: 0, scale: 0.85 },
               visible: { opacity: 1, scale: 1 },
             }}
-            className="text-zinc-400 md:text-zinc-600 font-light text-xs md:text-sm max-w-md mx-auto leading-relaxed"
+            className="text-zinc-400 md:text-zinc-600 font-light max-w-xl mx-auto leading-relaxed"
           >
             Wahai Pasangan suami-isteri, semoga kalian tetap bersatu dan tidak
             pernah terpisahkan. Semoga kalian mencapai hidup penuh kebahagiaan,
