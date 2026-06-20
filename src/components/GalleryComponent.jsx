@@ -48,7 +48,7 @@ const Gallery = () => {
           Galeri Kebahagiaan
         </h3>
         <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 font-medium">
-          Moments of Our Journey
+          Momen Perjalanan Kami
         </p>
       </div>
 

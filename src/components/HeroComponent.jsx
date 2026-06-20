@@ -32,7 +32,7 @@ const Hero = ({
 
   return (
     <section className="text-center h-screen flex flex-col justify-between bg-black text-white font-inter overflow-hidden">
-      <div className="relative h-screen flex items-start justify-center pt-36 md:pt-16 px-4 overflow-hidden">
+      <div className="relative h-screen flex items-start justify-center pt-26 md:pt-16 px-4 overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
           {sliderImages.map((image, index) => (
             <img

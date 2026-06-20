@@ -82,7 +82,7 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
               viewport={viewportConfigImg}
               transition={{ duration: 1.5, ease: [0.25, 1, 0.5, 1] }}
             />
-            <div className="absolute inset-0 bg-linear-to-b from-slate-950/80 via-slate-950/80 to-slate-950/80"></div>
+            <div className="absolute inset-0 bg-linear-to-b from-black/85 via-black/85 to-black/85"></div>
           </div>
 
           {/* AREA KONTEN TEKS (KONTAINER INDUK) */}
@@ -102,8 +102,8 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
             </motion.div>
 
             {/* Teks 2: Pembukaan Undang */}
-            <motion.div variants={textFadeIn} className="text-lg">
-              <div className="leading-relaxed">
+            <motion.div variants={textFadeIn} className="">
+              <div className="leading-relaxed font-light text-zinc-300">
                 Atas Asung Kerta Wara Nugraha Ida Sang Hyang Widi Wasa/Tuhan
                 Yang Maha Esa, Kami bermaksud mengundang Bapak/Ibu/Saudara/i
                 untuk hadir pada acara Pawiwahan (Pernikahan) putra dan putri
@@ -115,18 +115,22 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
             {/* Teks 3: Detail Tanggal & Jam */}
             <motion.div variants={textFadeIn} className="">
               <div className="text-xl">Acara di Rumah Mempelai Wanita</div>
-              <div className="text-lg">Selasa, 20 Oktober 2026</div>
-              <div className="text-lg">08.00 WITA - Selesai</div>
+              <div className="font-light text-zinc-300">
+                Selasa, 20 Oktober 2026
+              </div>
+              <div className="font-light text-zinc-300 mb-1">
+                08.00 WITA - Selesai
+              </div>
             </motion.div>
 
             {/* Teks 4: Tempat Pelaksanaan */}
             <motion.div variants={textFadeIn} className="mt-0">
               <div className="text-lg">Rumah Mempelai Wanita</div>
-              <div className="text-lg">Jembrana, Bali</div>
+              <div className="font-light text-zinc-300">Jembrana, Bali</div>
             </motion.div>
 
             {/* Teks 5: Tombol Maps */}
-            <motion.div variants={textFadeIn} className="pt-2 my-4">
+            <motion.div variants={textFadeIn} className="pt-2 my-2">
               <a
                 href="https://maps.google.com"
                 target="_blank"
@@ -150,18 +154,22 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
 
             <motion.div variants={textFadeIn} className="">
               <div className="text-xl">Acara di Rumah Mempelai Pria</div>
-              <div className="text-lg">Selasa, 20 Oktober 2026</div>
-              <div className="text-lg">08.00 WITA - Selesai</div>
+              <div className="font-light text-zinc-300">
+                Selasa, 20 Oktober 2026
+              </div>
+              <div className="font-light text-zinc-300 mb-1">
+                08.00 WITA - Selesai
+              </div>
             </motion.div>
 
             {/* Teks 4: Tempat Pelaksanaan */}
             <motion.div variants={textFadeIn} className="mt-0">
               <div className="text-lg">Rumah Mempelai Pria</div>
-              <div className="text-lg">Jembrana, Bali</div>
+              <div className="font-light text-zinc-300">Jembrana, Bali</div>
             </motion.div>
 
             {/* Teks 5: Tombol Maps */}
-            <motion.div variants={textFadeIn} className="pt-2 my-4">
+            <motion.div variants={textFadeIn} className="pt-2 my-2">
               <a
                 href="https://maps.google.com"
                 target="_blank"
@@ -184,13 +192,13 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
             </motion.div>
 
             {/* Teks 6: Penutup Doa Restu */}
-            <motion.div variants={textFadeIn} className="text-lg">
-              <div className="leading-relaxed">
+            <motion.div variants={textFadeIn} className="">
+              <div className="leading-relaxed font-light text-zinc-300">
                 Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
                 Bapak/Ibu/Saudara/i berkenan hadir serta memberikan doa restu
                 kepada kedua mempelai.
               </div>
-              <div className="mt-2">
+              <div className="mt-2 font-light text-zinc-300">
                 Atas kehadiran dan doa restunya, kami ucapkan terima kasih.
               </div>
               <div className="border md:border-0 border-b border-zinc-300 my-4 md:my-8"></div>
