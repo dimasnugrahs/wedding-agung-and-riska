@@ -4,79 +4,120 @@ import imageCover2 from "../assets/images/agung-hero-2.jpg";
 import { motion, AnimatePresence } from "motion/react";
 
 const Gallery = () => {
-  // Sekarang kita menyimpan INDEKS foto (null berarti pop-up tertutup)
   const [currentIndex, setCurrentIndex] = useState(null);
 
   const weddingPhotos = [
-    imageCover, // Foto index 0
-    imageCover2, // Foto index 1
-    imageCover, // Foto index 2
-    imageCover2, // Foto index 3
-    imageCover, // Foto index 4
-    imageCover2, // Foto index 5
-    imageCover, // Foto index 6
-    imageCover2, // Foto index 7
-    imageCover, // Foto index 8
-    imageCover2, // Foto index 9
+    imageCover,
+    imageCover2,
+    imageCover,
+    imageCover2,
+    imageCover,
+    imageCover2,
+    imageCover,
+    imageCover2,
+    imageCover,
+    imageCover2,
   ];
 
-  // Fungsi navigasi ke foto berikutnya
   const nextSlide = (e) => {
-    e.stopPropagation(); // Mencegah modal tertutup otomatis
+    e.stopPropagation();
     if (currentIndex < weddingPhotos.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      setCurrentIndex(0); // Kembali ke foto pertama jika sudah di ujung akhir
+      setCurrentIndex(0);
     }
   };
 
-  // Fungsi navigasi ke foto sebelumnya
   const prevSlide = (e) => {
-    e.stopPropagation(); // Mencegah modal tertutup otomatis
+    e.stopPropagation();
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     } else {
-      setCurrentIndex(weddingPhotos.length - 1); // Lompat ke foto terakhir jika klik prev di foto pertama
+      setCurrentIndex(weddingPhotos.length - 1);
     }
   };
 
+  const getLayoutClass = (index) => {
+    const mobilePos = index % 4;
+    let mobileClass = "";
+    if (mobilePos === 0 || mobilePos === 1) {
+      mobileClass = "col-span-3 aspect-[3/4]";
+    } else {
+      mobileClass = "col-span-6 aspect-[16/10]";
+    }
+
+    const desktopPos = index % 5;
+    let desktopClass = "";
+    if (desktopPos === 0 || desktopPos === 1 || desktopPos === 2) {
+      desktopClass = "md:col-span-2 md:aspect-[3/4]";
+    } else {
+      desktopClass = "md:col-span-3 md:aspect-[4/3]";
+    }
+
+    return `${mobileClass} ${desktopClass}`;
+  };
+
   return (
-    <section className="bg-black py-16 text-center space-y-10 w-full">
-      {/* JUDUL SECTION */}
-      <div className="space-y-2 px-4 mx-6 md:mx-20">
-        <h3 className="font-serif text-2xl md:text-3xl text-white tracking-wide font-normal">
+    <section className="bg-black py-16 text-center space-y-10 w-full overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ type: "spring", stiffness: 50, damping: 20 }}
+        className="space-y-2 px-4 mx-6 md:mx-20"
+      >
+        <h3 className="text-2xl md:text-3xl text-white tracking-wide font-normal font-serif">
           Galeri Kebahagiaan
         </h3>
         <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 font-medium">
           Momen Perjalanan Kami
         </p>
-      </div>
+      </motion.div>
 
-      {/* GRID FOTO */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-1.5 md:gap-2 mx-4 md:mx-20">
+      {/* GRID FOTO DENGAN ANIMASI PREMIUM SPRING & SMOOTH HOVER */}
+      <div className="grid grid-cols-6 gap-3 md:gap-4 mx-4 md:mx-32 max-w-7xl md:auto-rows-auto">
         {weddingPhotos.map((srcPath, i) => (
-          <div
+          <motion.div
             key={i}
-            // Klik menyalurkan indeks angka (i) ke state
             onClick={() => setCurrentIndex(i)}
-            className="overflow-hidden bg-zinc-900 aspect-square border border-zinc-800 group cursor-pointer"
+            initial={{ opacity: 0, y: 50, scale: 0.96 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-30px" }}
+            transition={{
+              type: "spring",
+              stiffness: 45,
+              damping: 14,
+              delay: (i % 5) * 0.06,
+            }}
+            whileHover={{ scale: 1.025 }}
+            whileTap={{ scale: 0.98 }}
+            className={`overflow-hidden bg-zinc-950 border border-zinc-900/80 group cursor-pointer rounded-sm ${getLayoutClass(i)}`}
           >
-            <img
+            <motion.img
               src={srcPath}
               alt={`Wedding moment ${i + 1}`}
-              className="w-full h-full object-cover opacity-65 group-hover:opacity-100 transition-transform duration-700 ease-out group-hover:scale-105"
+              initial={{ opacity: 0.65 }}
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="w-full h-full object-cover"
               loading="lazy"
             />
-          </div>
+          </motion.div>
         ))}
       </div>
 
-      {/* FOOTER KECIL GALERI */}
-      <div className="pt-2 px-4 mx-6 md:mx-20">
+      {/* ANIMASI FOOTER */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.4 }}
+        className="pt-2 px-4 mx-6 md:mx-20"
+      >
         <p className="text-zinc-400 italic text-xs font-light tracking-wide">
           "Meniti waktu, mengukir cerita abadi bersama."
         </p>
-      </div>
+      </motion.div>
 
       <AnimatePresence>
         {currentIndex !== null && (
@@ -87,6 +128,7 @@ const Gallery = () => {
             onClick={() => setCurrentIndex(null)}
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 cursor-zoom-out select-none"
           >
+            {/* Tombol Close */}
             <button
               onClick={() => setCurrentIndex(null)}
               className="absolute top-6 right-6 text-white/60 hover:text-white transition-colors p-2 z-50 cursor-pointer"
@@ -107,6 +149,7 @@ const Gallery = () => {
               </svg>
             </button>
 
+            {/* Tombol Prev */}
             <button
               onClick={prevSlide}
               className="absolute left-4 md:left-8 text-white/80 hover:text-white md:bg-zinc-900/40 hover:bg-zinc-800/60 p-3 rounded-full transition-all z-50 cursor-pointer md:backdrop-blur-xs"
@@ -128,12 +171,13 @@ const Gallery = () => {
               </svg>
             </button>
 
+            {/* Gambar Besar */}
             <motion.div
               key={currentIndex}
-              initial={{ scale: 0.95, opacity: 0 }}
+              initial={{ scale: 0.97, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              exit={{ scale: 0.97, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 100, damping: 20 }}
               onClick={(e) => e.stopPropagation()}
               className="relative max-w-4xl max-h-[80vh] overflow-hidden rounded-lg shadow-2xl px-2"
             >
@@ -148,6 +192,7 @@ const Gallery = () => {
               </div>
             </motion.div>
 
+            {/* Tombol Next */}
             <button
               onClick={nextSlide}
               className="absolute right-4 md:right-8 text-white/80 hover:text-white md:bg-zinc-900/40 hover:bg-zinc-800/60 p-3 rounded-full transition-all z-50 cursor-pointer md:backdrop-blur-xs"
