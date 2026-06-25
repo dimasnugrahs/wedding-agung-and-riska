@@ -66,7 +66,7 @@ const Gallery = () => {
         transition={{ type: "spring", stiffness: 50, damping: 20 }}
         className="space-y-2 px-4 mx-6 md:mx-20"
       >
-        <h3 className="text-2xl md:text-3xl text-white tracking-wide font-normal font-serif">
+        <h3 className="text-2xl md:text-3xl text-white tracking-wide font-normal">
           Galeri Kebahagiaan
         </h3>
         <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 font-medium">
