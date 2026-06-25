@@ -91,10 +91,10 @@ const App = () => {
         <Hero triggerAnimation={startHeroAnim} />
         {isOpen && (
           <>
+            <WishSection />
             <Profile />
             <LocationComponent />
             <Gallery />
-            <WishSection />
             <AccountNumber />
             <BigPhotoComponent />
             <Footer />

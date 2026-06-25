@@ -7,7 +7,7 @@ const Wish = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
       transition={{ staggerChildren: 0.15 }}
-      className="bg-black md:bg-linear-to-b md:from-zinc-50 md:to-white text-center py-20 px-4 border-t border-zinc-100"
+      className="bg-black md:bg-linear-to-b md:from-zinc-50 md:to-white text-center py-20 px-4"
     >
       <div className="max-w-2xl mx-auto space-y-10">
         <div className="space-y-4 px-4">

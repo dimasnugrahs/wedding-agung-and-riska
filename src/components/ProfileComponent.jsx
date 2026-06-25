@@ -211,7 +211,7 @@ const Profile = () => {
                 hidden: { opacity: 0, scale: 0.85 },
                 visible: { opacity: 1, scale: 1 },
               }}
-              className="font-angele text-4xl"
+              className="font-angele text-4xl text-zinc-800"
             >
               I Gusti Agung Putu Widiana Putra
             </motion.div>
@@ -236,9 +236,13 @@ const Profile = () => {
               <p className="text-zinc-500 text-[10px] uppercase tracking-wider mb-1">
                 Putra Pertama dari Pasangan:
               </p>
-              <p className="font-angele text-3xl">I Gusti Agung Winaya</p>
-              <p className="text-zinc-400 font-angele text-xl">&</p>
-              <p className="font-angele text-3xl">Luh Sumerasih</p>
+              <p className="font-angele text-3xl text-zinc-800">
+                I Gusti Agung Winaya
+              </p>
+              <p className="text-zinc-800 font-angele text-xl">&</p>
+              <p className="font-angele text-3xl text-zinc-800">
+                Luh Sumerasih
+              </p>
             </motion.div>
             <div className="pt-4 flex justify-center gap-4 text-sm">
               <motion.a
@@ -283,7 +287,7 @@ const Profile = () => {
                 hidden: { opacity: 0, scale: 0.85 },
                 visible: { opacity: 1, scale: 1 },
               }}
-              className="font-angele text-4xl"
+              className="font-angele text-4xl text-zinc-800"
             >
               Ni Wayan Riska Riyani
             </motion.div>
@@ -308,9 +312,13 @@ const Profile = () => {
               <p className="text-zinc-500 text-[10px] uppercase tracking-wider mb-1">
                 Putri Pertama dari Pasangan:
               </p>
-              <p className="font-angele text-3xl">I Made Mastra</p>
-              <p className="text-zinc-400 font-angele text-xl">&</p>
-              <p className="font-angele text-3xl">Ni Nyoman Manis</p>
+              <p className="font-angele text-3xl text-zinc-800">
+                I Made Mastra
+              </p>
+              <p className="font-angele text-xl text-zinc-800">&</p>
+              <p className="font-angele text-3xl text-zinc-800">
+                Ni Nyoman Manis
+              </p>
             </motion.div>
             <div className="pt-4 flex justify-center gap-4 text-sm">
               <motion.a
