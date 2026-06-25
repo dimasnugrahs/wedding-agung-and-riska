@@ -8,11 +8,11 @@ const Cover = ({ guestName, handleOpenInvitation, onTiraiRemaining }) => {
   useEffect(() => {
     const timer1 = setTimeout(() => {
       setAnimationPhase("names_intro");
-    }, 1800);
+    }, 2500);
 
     const timer2 = setTimeout(() => {
       setAnimationPhase("main_cover");
-    }, 3800);
+    }, 5000);
 
     return () => {
       clearTimeout(timer1);
@@ -95,8 +95,7 @@ const Cover = ({ guestName, handleOpenInvitation, onTiraiRemaining }) => {
             <div className="text-xs md:text-sm tracking-[0.3em] uppercase text-zinc-300 font-light flex items-center justify-center gap-2 mt-4">
               THE WEDDING OF
             </div>
-            {/* <h1 className="font-angele font-light text-5xl md:text-7xl bg-linear-to-r from-wedding-700 via-wedding-300 to-wedding-700 bg-clip-text text-transparent tracking-wide"> */}
-            <h1 className="font-lobster font-light text-4xl md:text-7xl  bg-clip-text text-white tracking-wide">
+            <h1 className="font-lobster font-light text-4xl md:text-7xl bg-clip-text text-white tracking-wide">
               Agung & Riska
             </h1>
           </motion.div>
@@ -126,7 +125,7 @@ const Cover = ({ guestName, handleOpenInvitation, onTiraiRemaining }) => {
             >
               <button
                 onClick={handleOpenInvitation}
-                className="flex items-center gap-2.5 border border-amber-300/20 bg-amber-300/10 backdrop-blur-sm hover:border md:bg-none hover:bg-linear-to-r hover:from-wedding-700 hover:via-wedding-500 hover:to-wedding-700 text-white font-medium px-8 py-3.5 rounded-full shadow hover:scale-105 active:scale-95 transition-all text-sm group"
+                className="flex items-center gap-2.5 border border-amber-300/20 bg-amber-300/10 backdrop-blur-sm hover:border md:bg-none hover:bg-linear-to-r hover:from-wedding-700 hover:via-wedding-500 hover:to-wedding-700 text-white font-medium px-8 py-3.5 rounded-full shadow hover:scale-105 active:scale-95 transition-all text-sm group cursor-pointer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
