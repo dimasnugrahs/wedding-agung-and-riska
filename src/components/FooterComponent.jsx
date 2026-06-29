@@ -48,7 +48,7 @@ const Footer = () => {
           viewport={viewportConfigImg}
           transition={{ duration: 1.5, ease: [0.25, 1, 0.5, 1] }}
         />
-        <div className="absolute inset-0 bg-linear-to-b from-slate-950/80 via-slate-950/80 to-slate-950/80"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/80 to-black/80"></div>
       </div>
 
       {/* AREA KONTEN TEKS (KONTAINER INDUK) */}

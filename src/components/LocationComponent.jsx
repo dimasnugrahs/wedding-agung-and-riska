@@ -2,19 +2,17 @@ import { useEffect, useState } from "react";
 import imageCover from "../assets/images/agung-cover-compressed.webp";
 import { motion } from "motion/react";
 
-// Kontainer Induk: Mengontrol kapan animasi anak dimulai & jeda antar elemen anak
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      delayChildren: 0.6, // Background dimuat dulu baru teks menyusul
-      staggerChildren: 0.2, // Jeda 0.2 detik bergiliran dari atas ke bawah
+      delayChildren: 0.6,
+      staggerChildren: 0.2,
     },
   },
 };
 
-// Varian Anak: Efek kemunculan teks (meluncur halus dari bawah ke atas)
 const textFadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -22,20 +20,20 @@ const textFadeIn = {
     y: 0,
     transition: {
       duration: 1.2,
-      ease: [0.25, 1, 0.5, 1], // Kurva pengereman halus
+      ease: [0.25, 1, 0.5, 1],
     },
   },
 };
 
 const viewportConfig = {
   once: true,
-  amount: 0.3, // Diturunkan ke 0.3 agar teks langsung terpicu nyaman di mobile
+  amount: 0.3,
 };
 
-const viewportConfigImg = {
-  once: true,
-  amount: 0.1,
-};
+// const viewportConfigImg = {
+//   once: true,
+//   amount: 0.1,
+// };
 
 const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
   const [timeLeft, setTimeLeft] = useState({
@@ -73,15 +71,12 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
       <div>
         <div className="relative min-h-screen flex flex-col justify-start items-start md:justify-center md:text-center md:items-center px-6 py-16 text-white overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <motion.img
-              src={imageCover}
-              alt="Groom"
-              className="w-full h-full object-cover"
-              initial={{ scale: 1.15, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={viewportConfigImg}
-              transition={{ duration: 1.5, ease: [0.25, 1, 0.5, 1] }}
+            {/* Menggunakan div dengan bg-fixed dan bg-cover agar gambar terkunci di layar saat di-scroll */}
+            <div
+              className="w-full h-full bg-fixed bg-cover bg-center"
+              style={{ backgroundImage: `url(${imageCover})` }}
             />
+            {/* Overlay kegelapan */}
             <div className="absolute inset-0 bg-linear-to-b from-black/85 via-black/85 to-black/85"></div>
           </div>
 
