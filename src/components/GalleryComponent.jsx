@@ -1,6 +1,6 @@
 import { useState } from "react";
-import imageCover from "../assets/images/agung-cover-compressed.webp";
-import imageCover2 from "../assets/images/agung-hero-2.jpg";
+import imageCover from "../assets/images/wedding-agung-and-riska-slider-1.webp";
+import imageCover2 from "../assets/images/wedding-agung-and-riska-slider-2.webp";
 import { motion, AnimatePresence } from "motion/react";
 
 const Gallery = () => {

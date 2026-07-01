@@ -1,4 +1,5 @@
-import imageCover from "../assets/images/agung-cover-compressed.webp";
+import imageCoverMan from "../assets/images/wedding-agung-and-riska-profile-man.webp";
+import imageCoverWoman from "../assets/images/wedding-agung-and-riska-profile-woman.webp";
 import { motion } from "motion/react";
 
 const containerVariants = {
@@ -53,7 +54,7 @@ const Profile = () => {
         <div className="relative min-h-screen flex flex-col justify-end items-end px-6 py-16 text-white overflow-hidden">
           <div className="absolute inset-0 z-0">
             <motion.img
-              src={imageCover}
+              src={imageCoverMan}
               alt="Groom"
               className="w-full h-full object-cover"
               initial={{ scale: 1.15, opacity: 0 }}
@@ -127,7 +128,7 @@ const Profile = () => {
           {/* AREA BACKGROUND DENGAN ANIMASI ZOOM-IN */}
           <div className="absolute inset-0 z-0">
             <motion.img
-              src={imageCover}
+              src={imageCoverWoman}
               alt="Bride"
               className="w-full h-full object-cover"
               initial={{ scale: 1.15, opacity: 0 }}

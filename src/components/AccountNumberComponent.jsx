@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import imageCover from "../assets/images/agung-cover-compressed.webp";
+import imageCover from "../assets/images/wedding-agung-and-riska-location.webp";
 
 const DigitalEnvelope = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);

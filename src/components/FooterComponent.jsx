@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import imageCover from "../assets/images/agung-cover-compressed.webp";
+import imageCover from "../assets/images/wedding-agung-and-riska-location.webp";
 
 const containerVariants = {
   hidden: { opacity: 0 },

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import imageCover from "../assets/images/agung-cover-compressed.webp";
+import imageCover from "../assets/images/wedding-agung-and-riska-location.webp";
 
 const Cover = ({ guestName, handleOpenInvitation, onTiraiRemaining }) => {
   const [animationPhase, setAnimationPhase] = useState("wedding_of");
@@ -26,22 +26,20 @@ const Cover = ({ guestName, handleOpenInvitation, onTiraiRemaining }) => {
       exit={{ y: "-100%" }}
       transition={{
         duration: 1.5,
-        ease: [0.76, 0, 0.24, 1], // Animasi tirai meluncur ke atas yang sangat mulus
+        ease: [0.76, 0, 0.24, 1],
       }}
       onUpdate={(latest) => {
-        // latest.y mengembalikan string seperti "-25.4%"
         if (latest.y && typeof latest.y === "string") {
-          const murniAngkaY = Math.abs(parseFloat(latest.y)); // Ubah "-25.4%" menjadi 25.4
-          const sisaTiraiDiLayar = 100 - murniAngkaY; // Hitung sisa area tirai
+          const murniAngkaY = Math.abs(parseFloat(latest.y));
+          const sisaTiraiDiLayar = 100 - murniAngkaY;
 
           if (onTiraiRemaining) {
             onTiraiRemaining(sisaTiraiDiLayar);
           }
         }
       }}
-      className="fixed inset-0 z-[999] flex flex-col justify-between items-center text-center bg-black select-none overflow-hidden"
+      className="fixed inset-0 z-999 flex flex-col justify-between items-center text-center bg-black select-none overflow-hidden"
     >
-      {/* FASE 1: THE WEDDING OF INTRO */}
       {animationPhase === "wedding_of" && (
         <motion.div
           key="wedding_of"
@@ -57,7 +55,6 @@ const Cover = ({ guestName, handleOpenInvitation, onTiraiRemaining }) => {
         </motion.div>
       )}
 
-      {/* FASE 2: AGUNG & RISKA INTRO */}
       {animationPhase === "names_intro" && (
         <motion.div
           key="names_intro"
@@ -73,7 +70,6 @@ const Cover = ({ guestName, handleOpenInvitation, onTiraiRemaining }) => {
         </motion.div>
       )}
 
-      {/* FASE 3: HALAMAN UTAMA COVER */}
       {animationPhase === "main_cover" && (
         <motion.div
           key="main_cover"
@@ -85,7 +81,6 @@ const Cover = ({ guestName, handleOpenInvitation, onTiraiRemaining }) => {
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${imageCover})`,
           }}
         >
-          {/* Judul Atas */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}

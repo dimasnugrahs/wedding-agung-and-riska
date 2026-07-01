@@ -1,20 +1,17 @@
 import { useState, useEffect } from "react";
-import imageHeroOne from "../assets/images/agung-hero-1.jpg";
-import imageHeroTwo from "../assets/images/agung-hero-2.jpg";
-import imageHeroThree from "../assets/images/agung-hero-3.jpg";
-import imageHeroFour from "../assets/images/agung-hero-4.jpg";
-import imageHeroFive from "../assets/images/agung-hero-5.jpg";
+import imageHeroOne from "../assets/images/wedding-agung-and-riska-slider-1.webp";
+import imageHeroTwo from "../assets/images/wedding-agung-and-riska-slider-2.webp";
 import { motion } from "motion/react";
 
 const Hero = ({
   title = "Agung & Riska",
-  triggerAnimation = false, // Prop baru sebagai kendali utama interaksi tirai
+  triggerAnimation = false,
   sliderImages = [
     { src: imageHeroOne, alt: "Foto Prewedding Agung dan Riska Utama" },
     { src: imageHeroTwo, alt: "Momen Bahagia Agung Riska di Bali" },
-    { src: imageHeroThree, alt: "Sesi Foto Kasual Agung dan Riska" },
-    { src: imageHeroFour, alt: "Detail Dekorasi Pernikahan Agung Riska" },
-    { src: imageHeroFive, alt: "Foto Kenangan Agung dan Riska" },
+    // { src: imageHeroThree, alt: "Sesi Foto Kasual Agung dan Riska" },
+    // { src: imageHeroFour, alt: "Detail Dekorasi Pernikahan Agung Riska" },
+    // { src: imageHeroFive, alt: "Foto Kenangan Agung dan Riska" },
   ],
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -34,7 +31,6 @@ const Hero = ({
   return (
     <section className="text-center h-screen flex flex-col justify-between bg-black text-white font-inter overflow-hidden relative w-full">
       <div className="relative h-screen flex items-start justify-center pt-26 md:pt-20 px-4 overflow-hidden w-full">
-        {/* Background Slider */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           {sliderImages.map((image, index) => (
             <img
@@ -47,10 +43,9 @@ const Hero = ({
               loading="eager"
             />
           ))}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/80"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/30 to-black/80"></div>
         </div>
 
-        {/* Konten Teks Hero yang Terpaku pada Gerakan Tirai */}
         <div className="relative z-10 space-y-3 mt-10 md:mt-16">
           <motion.h1
             initial={{ opacity: 0, y: 45, scale: 0.95 }}

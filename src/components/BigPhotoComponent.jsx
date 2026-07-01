@@ -4,8 +4,8 @@ const BigPhotoComponent = () => {
     "https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=1200&auto=format&fit=crop&sat=-100";
 
   return (
-    <section className="w-full bg-white py-6 my-20">
-      <div className="mx-4 md:mx-20 relative group overflow-hidden rounded-3xl aspect-[4/5] md:aspect-[16/9] shadow-xl border border-zinc-200/50">
+    <section className="w-full bg-transparent py-6 my-10">
+      <div className="mx-8 md:mx-20 relative group overflow-hidden rounded-3xl aspect-[4/5] md:aspect-[16/9] shadow-xl border border-zinc-200/50">
         {/* 1. FOTO UTAMA BESAR */}
         <img
           src={BIG_PHOTO_URL}
