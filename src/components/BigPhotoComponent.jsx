@@ -1,21 +1,19 @@
-const BigPhotoComponent = () => {
-  // Foto dummy bernuansa monokrom (adat Bali/pernikahan) dari Unsplash
-  const BIG_PHOTO_URL =
-    "https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=1200&auto=format&fit=crop&sat=-100";
+import imageCover from "../assets/images/wedding-agung-and-riska-cover.webp";
 
+const BigPhotoComponent = () => {
   return (
     <section className="w-full bg-transparent py-6 my-10">
-      <div className="mx-8 md:mx-20 relative group overflow-hidden rounded-3xl aspect-[4/5] md:aspect-[16/9] shadow-xl border border-zinc-200/50">
+      <div className="mx-8 md:mx-20 relative group overflow-hidden rounded-3xl aspect-4/5 md:aspect-16/9 shadow-xl border border-zinc-200/50">
         {/* 1. FOTO UTAMA BESAR */}
         <img
-          src={BIG_PHOTO_URL}
+          src={imageCover}
           alt="Bramasta & Riska Wedding"
           className="w-full h-full object-cover filter grayscale contrast-115 transition-transform duration-1000 ease-out group-hover:scale-105"
           loading="lazy"
         />
 
         {/* 2. OVERLAY GRADASI GELAP (Agar teks di bawahnya menyala tajam) */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
 
         {/* 3. KONTEN TEKS DI ATAS FOTO */}
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 text-center md:text-left flex flex-col md:flex-row md:items-end md:justify-between gap-4 text-white">
@@ -33,10 +31,7 @@ const BigPhotoComponent = () => {
           {/* Sisi Kanan: Inisial atau Penegas Tema */}
           <div className="hidden md:block text-right">
             <span className="font-sacramento text-4xl text-white/90 block">
-              A & R
-            </span>
-            <span className="text-[9px] uppercase tracking-[0.3em] text-zinc-500 block mt-1">
-              Grayscale Edition
+              Agung & Riska
             </span>
           </div>
         </div>

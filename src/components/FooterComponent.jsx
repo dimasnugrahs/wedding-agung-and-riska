@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import imageCover from "../assets/images/wedding-agung-and-riska-location.webp";
+import imageCover from "../assets/images/wedding-agung-and-riska-footer.webp";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -48,7 +48,7 @@ const Footer = () => {
           viewport={viewportConfigImg}
           transition={{ duration: 1.5, ease: [0.25, 1, 0.5, 1] }}
         />
-        <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/80 to-black/80"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/70 to-black"></div>
       </div>
 
       {/* AREA KONTEN TEKS (KONTAINER INDUK) */}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import imageCover from "../assets/images/wedding-agung-and-riska-location.webp";
+import imageCover from "../assets/images/wedding-agung-and-riska-account-number.webp";
 
 const DigitalEnvelope = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -16,7 +16,7 @@ const DigitalEnvelope = () => {
   };
 
   return (
-    <section className="relative w-full bg-black flex flex-col justify-center items-center px-6 py-46 text-zinc-300 overflow-hidden select-none">
+    <section className="relative w-full h-screen bg-black flex flex-col justify-end items-start px-6 py-46 text-zinc-300 overflow-hidden select-none">
       <div className="absolute inset-0 z-0">
         {/* Menggunakan div dengan bg-fixed dan bg-cover agar gambar terkunci di layar saat di-scroll */}
         <div
@@ -24,14 +24,14 @@ const DigitalEnvelope = () => {
           style={{ backgroundImage: `url(${imageCover})` }}
         />
         {/* Overlay kegelapan */}
-        <div className="absolute inset-0 bg-linear-to-b from-black/85 via-black/85 to-black/85"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/70 to-black/70"></div>
       </div>
       <div className="relative z-10 flex flex-col items-center w-full max-w-sm md:max-w-2xl text-center space-y-8">
         <div className="space-y-4">
           <div className="text-3xl font-display tracking-widest text-white">
             DIGITAL GIFT
           </div>
-          <p className="text-xs font-light text-zinc-400 leading-relaxed px-4 pt-2 uppercase tracking-[0.18em]">
+          <p className="text-sm font-light text-zinc-400 leading-relaxed px-4">
             Doa restu Anda merupakan hal yang sangat berarti bagi kami. Bagi
             Anda yang ingin memberikan tanda kasih atau hadiah kepada kami,
             dengan rasa syukur kami dapat menerima gift terbaik kalian.
