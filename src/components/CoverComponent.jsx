@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import imageCover from "../assets/images/wedding-agung-and-riska-location.webp";
+import imageCover from "../assets/images/wedding-agung-and-riska-cover.webp";
 
 const Cover = ({ guestName, handleOpenInvitation, onTiraiRemaining }) => {
   const [animationPhase, setAnimationPhase] = useState("wedding_of");
