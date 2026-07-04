@@ -16,7 +16,12 @@ const DigitalEnvelope = () => {
   };
 
   return (
-    <section className="relative w-full h-screen bg-black flex flex-col justify-end items-start px-6 py-46 text-zinc-300 overflow-hidden select-none">
+    /* 
+      PENYESUAIAN LAYOUT UTAMA SECTIONS:
+      - Mobile: justify-end (di bawah) & items-start (di kiri)
+      - Desktop (md:): md:justify-center & md:items-center (rata tengah sempurna)
+    */
+    <section className="relative w-full h-screen bg-black flex flex-col justify-end items-start md:justify-center md:items-center px-6 py-16 md:py-0 text-zinc-300 overflow-hidden select-none">
       <div className="absolute inset-0 z-0">
         {/* Menggunakan div dengan bg-fixed dan bg-cover agar gambar terkunci di layar saat di-scroll */}
         <div
@@ -26,12 +31,18 @@ const DigitalEnvelope = () => {
         {/* Overlay kegelapan */}
         <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/70 to-black/70"></div>
       </div>
-      <div className="relative z-10 flex flex-col items-center w-full max-w-sm md:max-w-2xl text-center space-y-8">
-        <div className="space-y-4">
+
+      {/* 
+        PENYESUAIAN AREA KONTEN TEKS:
+        - Mobile: text-left (tulisan rata kiri agar sinkron saat berada di pojok kiri bawah)
+        - Desktop (md:): md:text-center (tulisan kembali rata tengah saat konten di tengah layar)
+      */}
+      <div className="relative z-10 flex flex-col items-start md:items-center w-full max-w-sm md:max-w-2xl text-left md:text-center space-y-8">
+        <div className="space-y-4 w-full">
           <div className="text-3xl font-display tracking-widest text-white">
             DIGITAL GIFT
           </div>
-          <p className="text-sm font-light text-zinc-400 leading-relaxed px-4">
+          <p className="text-sm font-light text-zinc-400 leading-relaxed md:px-4">
             Doa restu Anda merupakan hal yang sangat berarti bagi kami. Bagi
             Anda yang ingin memberikan tanda kasih atau hadiah kepada kami,
             dengan rasa syukur kami dapat menerima gift terbaik kalian.
@@ -60,7 +71,8 @@ const DigitalEnvelope = () => {
 
         {/* FOOTER UCAPAN TERIMA KASIH */}
         <div className="pt-4 w-full">
-          <div className="w-1/3 h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent mx-auto mb-6"></div>
+          {/* Garis pembatas disesuaikan: hilang di mobile (karena rata kiri), muncul kembali di desktop lewat md:block */}
+          <div className="hidden md:block w-1/3 h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent mx-auto mb-6"></div>
           <p className="font-light text-sm italic text-zinc-400 tracking-wide">
             Terima kasih atas doa restu & hadiah Anda
           </p>
@@ -71,7 +83,7 @@ const DigitalEnvelope = () => {
       <AnimatePresence>
         {isOpenModal && (
           <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4">
-            {/* 1. Backdrop Kegelapan Di Belakang Modal (Bisa diklik untuk menutup) */}
+            {/* Backdrop Kegelapan Di Belakang Modal */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -80,7 +92,7 @@ const DigitalEnvelope = () => {
               className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
             />
 
-            {/* 2. Konten Tengah: Kartu ATM Digital */}
+            {/* Konten Tengah: Kartu ATM Digital (Tetap berada di tengah layar baik mobile maupun desktop agar fokus tamu terjaga) */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -103,7 +115,6 @@ const DigitalEnvelope = () => {
                       rekening mandiri
                     </span>
                   </div>
-                  {/* Model Chip Card ATM */}
                   <div className="w-8 h-6 bg-zinc-800/80 border border-zinc-700/50 rounded-md opacity-40"></div>
                 </div>
 
@@ -139,7 +150,7 @@ const DigitalEnvelope = () => {
                 </div>
               </div>
 
-              {/* 3. Tombol Tutup Mandiri (Berada di Luar Kartu ATM) */}
+              {/* Tombol Tutup Mandiri (Di Luar Kartu ATM) */}
               <button
                 onClick={() => setIsOpenModal(false)}
                 className="flex items-center justify-center w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 shadow-md transition-all active:scale-95 cursor-pointer"
