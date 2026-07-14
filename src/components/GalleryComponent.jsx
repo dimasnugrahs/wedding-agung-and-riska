@@ -1,6 +1,18 @@
 import { useState } from "react";
-import imageCover from "../assets/images/wedding-agung-and-riska-slider-1.webp";
-import imageCover2 from "../assets/images/wedding-agung-and-riska-slider-2.webp";
+import imageCover from "../assets/images/wedding-agung-and-riska-galeri-1.webp";
+import imageCover2 from "../assets/images/wedding-agung-and-riska-galeri-2.webp";
+import imageCover3 from "../assets/images/wedding-agung-and-riska-galeri-3.webp";
+import imageCover4 from "../assets/images/wedding-agung-and-riska-galeri-4.webp";
+import imageCover5 from "../assets/images/wedding-agung-and-riska-galeri-5.webp";
+import imageCover6 from "../assets/images/wedding-agung-and-riska-galeri-6.webp";
+import imageCover7 from "../assets/images/wedding-agung-and-riska-galeri-7.webp";
+import imageCover8 from "../assets/images/wedding-agung-and-riska-galeri-8.webp";
+import imageCover9 from "../assets/images/wedding-agung-and-riska-galeri-9.webp";
+import imageCover10 from "../assets/images/wedding-agung-and-riska-galeri-10.webp";
+import imageCover11 from "../assets/images/wedding-agung-and-riska-galeri-11.webp";
+import imageCover12 from "../assets/images/wedding-agung-and-riska-galeri-12.webp";
+import imageCover13 from "../assets/images/wedding-agung-and-riska-galeri-13.webp";
+import imageCover14 from "../assets/images/wedding-agung-and-riska-galeri-14.webp";
 import { motion, AnimatePresence } from "motion/react";
 
 const Gallery = () => {
@@ -9,14 +21,18 @@ const Gallery = () => {
   const weddingPhotos = [
     imageCover,
     imageCover2,
-    imageCover,
-    imageCover2,
-    imageCover,
-    imageCover2,
-    imageCover,
-    imageCover2,
-    imageCover,
-    imageCover2,
+    imageCover3,
+    imageCover4,
+    imageCover5,
+    imageCover6,
+    imageCover7,
+    imageCover8,
+    imageCover9,
+    imageCover10,
+    imageCover11,
+    imageCover12,
+    imageCover13,
+    imageCover14,
   ];
 
   const nextSlide = (e) => {
