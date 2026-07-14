@@ -35,7 +35,7 @@ const viewportConfig = {
 //   amount: 0.1,
 // };
 
-const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
+const LocationComponent = ({ targetDate = "2026-10-21T13:00:00" }) => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -198,51 +198,7 @@ const LocationComponent = ({ targetDate = "2026-10-20T13:00:00" }) => {
               <div className="mt-2 font-light text-zinc-300 text-sm">
                 Atas kehadiran dan doa restunya, kami ucapkan terima kasih.
               </div>
-              <div className="border md:border-0 border-b border-zinc-300 my-4 md:my-8"></div>
             </motion.div>
-
-            {/* Teks 7: Angka Countdown */}
-            <motion.div
-              variants={textFadeIn}
-              className="font-light grid grid-cols-4 text-3xl px-5 text-center mt-8"
-            >
-              <div className="uppercase">
-                {String(timeLeft.days).padStart(2, "0")}
-              </div>
-              <div className="uppercase">
-                {String(timeLeft.hours).padStart(2, "0")}
-              </div>
-              <div className="uppercase">
-                {String(timeLeft.minutes).padStart(2, "0")}
-              </div>
-              <div className="uppercase">
-                {String(timeLeft.seconds).padStart(2, "0")}
-              </div>
-            </motion.div>
-
-            {/* Teks 8: Label Countdown (Days, Hours, Mins, Secs) */}
-            <motion.div
-              variants={textFadeIn}
-              className="font-light grid grid-cols-4 text-3xl px-5 text-center mb-8"
-            >
-              <div className="uppercase">
-                <span className="text-sm text-zinc-400 mt-1">Days</span>
-              </div>
-              <div className="uppercase">
-                <span className="text-sm text-zinc-400 mt-1">Hours</span>
-              </div>
-              <div className="uppercase">
-                <span className="text-sm text-zinc-400 mt-1">Mins</span>
-              </div>
-              <div className="uppercase">
-                <span className="text-sm text-zinc-400 mt-1">Secs</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={textFadeIn}
-              className="border md:border-0 border-b border-zinc-300 my-4 md:my-8"
-            ></motion.div>
           </motion.div>
         </div>
       </div>

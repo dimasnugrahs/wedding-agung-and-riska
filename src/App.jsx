@@ -13,6 +13,7 @@ import LocationComponent from "./components/LocationComponent";
 
 // Import file audio pendukung lagu autoplay
 import backsoundSong from "./assets/music/wedding-agung-and-riska.mp3";
+import CountdownComponent from "./components/CountdownComponent";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -94,9 +95,10 @@ const App = () => {
             <WishSection />
             <Profile />
             <LocationComponent />
+            <CountdownComponent />
             <Gallery />
             <AccountNumber />
-            <BigPhotoComponent />
+            {/* <BigPhotoComponent /> */}
             <Footer />
           </>
         )}
