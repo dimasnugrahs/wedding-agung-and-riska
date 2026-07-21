@@ -4,7 +4,7 @@ const Mesangih = ({
   candidates = [
     {
       id: 1,
-      name: "I Gede Agung Widiana",
+      name: "I Gusti Agung Putu Widiana Putra",
       role: "Putra Pertama",
     },
     {
@@ -40,11 +40,6 @@ const Mesangih = ({
           <h2 className="text-3xl md:text-3xl text-white tracking-wide font-normal pt-1">
             Upacara Mesangih / Potong Gigi
           </h2>
-
-          {/* Deskripsi Singkat */}
-          <p className="text-xs md:text-sm text-zinc-400 font-light max-w-md pt-2 leading-relaxed">
-            Silahkan diisi dengan deskripsi mesangih ya lengur.
-          </p>
         </motion.div>
 
         {/* ================= SINGLE BOX UNTUK SEMUA NAMA ================= */}
@@ -66,13 +61,6 @@ const Mesangih = ({
                     : "py-6"
               }`}
             >
-              {/* Badge/Peran */}
-              {person.role && (
-                <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-zinc-400 font-medium mb-1.5">
-                  {person.role}
-                </span>
-              )}
-
               {/* Nama Peserta */}
               <h3 className="text-xl font-lobster md:text-2xl text-zinc-100 font-medium tracking-wide">
                 {person.name}
