@@ -123,11 +123,6 @@ const CountdownComponent = ({ targetDate = "2026-10-21T13:00:00" }) => {
             <span className="text-sm text-zinc-400 mt-1">Secs</span>
           </div>
         </motion.div>
-
-        <motion.div
-          variants={textFadeIn}
-          className="border border-0 border-b border-zinc-300 my-4 md:my-8"
-        ></motion.div>
       </motion.div>
     </div>
   );
