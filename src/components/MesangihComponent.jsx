@@ -32,13 +32,13 @@ const Mesangih = ({
           className="flex flex-col items-center space-y-3"
         >
           {/* Sub-judul Tradisional */}
-          <span className="text-xs md:text-xs uppercase tracking-[0.4em] font-light">
+          {/* <span className="text-xs md:text-xs uppercase tracking-[0.4em] font-light">
             Upacara Manusa Yadnya
-          </span>
+          </span> */}
 
           {/* Judul Utama */}
-          <h2 className="text-4xl md:text-4xl text-white tracking-wide font-normal pt-1">
-            Mepandes / Mesangih
+          <h2 className="text-3xl md:text-3xl text-white tracking-wide font-normal pt-1">
+            Upacara Mesangih / Potong Gigi
           </h2>
 
           {/* Deskripsi Singkat */}
@@ -74,7 +74,7 @@ const Mesangih = ({
               )}
 
               {/* Nama Peserta */}
-              <h3 className="text-xl md:text-2xl font-serif text-zinc-100 font-medium tracking-wide">
+              <h3 className="text-xl font-lobster md:text-2xl text-zinc-100 font-medium tracking-wide">
                 {person.name}
               </h3>
             </div>

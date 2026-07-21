@@ -75,7 +75,7 @@ const CountdownComponent = ({ targetDate = "2026-10-21T13:00:00" }) => {
         whileInView="visible"
         viewport={viewportConfig}
         variants={containerVariants}
-        className="relative z-10 space-y-0 w-full md:w-1/2"
+        className="relative z-10 space-y-0 w-full md:w-1/2 bg-zinc-950/80 border border-zinc-800/80 hover:border-amber-500/30 rounded-2xl p-6 md:p-8 "
       >
         {/* Teks 1: Judul Save The Date */}
         <motion.div variants={textFadeIn} className="text-3xl">
@@ -111,7 +111,9 @@ const CountdownComponent = ({ targetDate = "2026-10-21T13:00:00" }) => {
           className="font-light grid grid-cols-4 text-3xl px-5 text-center mb-8"
         >
           <div className="uppercase">
-            <span className="text-sm text-zinc-400 mt-1">Days</span>
+            <span className="text-sm text-zinc-400 mt-1">
+              Days
+            </span>
           </div>
           <div className="uppercase">
             <span className="text-sm text-zinc-400 mt-1">Hours</span>
