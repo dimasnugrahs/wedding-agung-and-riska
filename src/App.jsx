@@ -6,7 +6,6 @@ import Hero from "./components/HeroComponent";
 import WishSection from "./components/WishComponent";
 import Gallery from "./components/GalleryComponent";
 import Footer from "./components/FooterComponent";
-import BigPhotoComponent from "./components/BigPhotoComponent";
 import AccountNumber from "./components/AccountNumberComponent";
 import Profile from "./components/ProfileComponent";
 import LocationComponent from "./components/LocationComponent";
@@ -14,6 +13,7 @@ import LocationComponent from "./components/LocationComponent";
 // Import file audio pendukung lagu autoplay
 import backsoundSong from "./assets/music/wedding-agung-and-riska.mp3";
 import CountdownComponent from "./components/CountdownComponent";
+import Mesangih from "./components/MesangihComponent";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -94,11 +94,11 @@ const App = () => {
           <>
             <WishSection />
             <Profile />
+            <Mesangih />
             <LocationComponent />
             <CountdownComponent />
             <Gallery />
             <AccountNumber />
-            {/* <BigPhotoComponent /> */}
             <Footer />
           </>
         )}

@@ -212,7 +212,7 @@ const Profile = () => {
                 hidden: { opacity: 0, scale: 0.85 },
                 visible: { opacity: 1, scale: 1 },
               }}
-              className="font-angele text-4xl text-zinc-800"
+              className="font-angele font-bold text-4xl text-zinc-800"
             >
               I Gusti Agung Putu Widiana Putra
             </motion.div>
@@ -288,7 +288,7 @@ const Profile = () => {
                 hidden: { opacity: 0, scale: 0.85 },
                 visible: { opacity: 1, scale: 1 },
               }}
-              className="font-angele text-4xl text-zinc-800"
+              className="font-angele font-bold text-4xl text-zinc-800"
             >
               Ni Wayan Riska Riyani
             </motion.div>
