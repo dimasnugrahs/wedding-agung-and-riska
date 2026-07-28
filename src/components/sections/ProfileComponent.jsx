@@ -1,0 +1,156 @@
+import { motion } from "motion/react";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const textFadeIn = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1,
+      ease: [0.25, 1, 0.5, 1],
+    },
+  },
+};
+
+const viewportConfig = {
+  once: true,
+  amount: 0.2,
+};
+
+const profiles = [
+  {
+    id: "groom",
+    name: "I Gusti Agung Putu Widiana Putra",
+    nickname: "Agung",
+    role: "Putra Pertama dari Pasangan",
+    father: "I Gusti Agung Winaya",
+    mother: "Luh Sumerasih",
+    instagram: "agungwidiana",
+    instagramUrl: "https://instagram.com",
+    image: "/images/wedding-agung-and-riska-profile-man.webp",
+  },
+  {
+    id: "bride",
+    name: "Ni Wayan Riska Riyani",
+    nickname: "Riska",
+    role: "Putri Pertama dari Pasangan",
+    father: "I Made Mastra",
+    mother: "Ni Nyoman Manis",
+    instagram: "riska.riyani",
+    instagramUrl: "https://instagram.com",
+    image: "/images/wedding-agung-and-riska-profile-woman.webp",
+  },
+];
+
+const ProfileComponents = () => {
+  return (
+    <section className="bg-black text-white py-16 md:py-24 px-4 sm:px-6 overflow-hidden select-none">
+      <div className="max-w-6xl mx-auto space-y-16 md:space-y-24">
+        {profiles.map((person, index) => {
+          const isEven = index % 2 === 0;
+
+          return (
+            <div
+              key={person.id}
+              className={`relative min-h-[80vh] md:min-h-[500px] flex items-end rounded-3xl overflow-hidden border border-zinc-800/80 shadow-2xl ${
+                isEven ? "justify-start" : "justify-end"
+              }`}
+            >
+              {/* Background Image & Overlay */}
+              <div className="absolute inset-0 z-0">
+                <motion.img
+                  src={person.image}
+                  alt={person.name}
+                  className="w-full h-full object-cover object-center"
+                  initial={{ scale: 1.15, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={viewportConfig}
+                  transition={{ duration: 1.5, ease: [0.25, 1, 0.5, 1] }}
+                />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent md:bg-gradient-to-r ${
+                    isEven
+                      ? "md:from-black/90 md:via-black/60 md:to-transparent"
+                      : "md:from-transparent md:via-black/60 md:to-black/90"
+                  }`}
+                />
+              </div>
+
+              {/* Konten Teks Profil */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportConfig}
+                variants={containerVariants}
+                className={`relative z-10 p-6 sm:p-10 md:p-12 w-full md:w-1/2 space-y-4 ${
+                  isEven ? "text-left" : "text-right md:text-right"
+                }`}
+              >
+                <motion.div variants={textFadeIn} className="space-y-1">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif text-white font-normal tracking-wide leading-tight">
+                    {person.name}
+                  </h3>
+                  <p className="text-xs uppercase tracking-[0.3em] text-amber-300/90 font-light">
+                    ({person.nickname})
+                  </p>
+                </motion.div>
+
+                <motion.div variants={textFadeIn} className="space-y-1 pt-2">
+                  <p className="text-[10px] sm:text-xs uppercase tracking-wider text-zinc-400 font-light">
+                    {person.role}:
+                  </p>
+                  <p className="text-sm sm:text-base font-serif text-zinc-200">
+                    {person.father}
+                  </p>
+                  <p className="text-xs text-amber-400/80 font-serif">&</p>
+                  <p className="text-sm sm:text-base font-serif text-zinc-200">
+                    {person.mother}
+                  </p>
+                </motion.div>
+
+                {/* Tombol Instagram */}
+                <motion.div variants={textFadeIn} className="pt-3">
+                  <a
+                    href={person.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 border border-zinc-700/80 bg-zinc-900/70 hover:border-amber-500/40 hover:bg-zinc-800/80 text-white text-[11px] tracking-widest uppercase font-medium px-5 py-2.5 rounded-xl transition-all shadow-sm group backdrop-blur-md"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-4 h-4 text-amber-300 group-hover:scale-110 transition-transform"
+                    >
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                    <span>{person.nickname}</span>
+                  </a>
+                </motion.div>
+              </motion.div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+};
+
+export default ProfileComponents;

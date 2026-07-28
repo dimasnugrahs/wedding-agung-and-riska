@@ -1,30 +1,57 @@
-import { useEffect, useState, useCallback, useRef } from "react";
+import {
+  useEffect,
+  useState,
+  useCallback,
+  useRef,
+  lazy,
+  Suspense,
+} from "react";
 import { AnimatePresence } from "motion/react";
 
-import Cover from "./components/CoverComponent";
-import Hero from "./components/HeroComponent";
-import WishSection from "./components/WishComponent";
-import Gallery from "./components/GalleryComponent";
-import Footer from "./components/FooterComponent";
-import AccountNumber from "./components/AccountNumberComponent";
-import Profile from "./components/ProfileComponent";
-import LocationComponent from "./components/LocationComponent";
+// 1. Core Components (Eager Load / Langsung Dimuat di Layar Pertama)
+import Cover from "./components/core/CoverComponent";
+import Hero from "./components/core/HeroComponent";
 
-// Import file audio pendukung lagu autoplay
-import backsoundSong from "./assets/music/wedding-agung-and-riska.mp3";
-import CountdownComponent from "./components/CountdownComponent";
-import Mesangih from "./components/MesangihComponent";
+// 2. Section Components (Lazy Load / Dimuat Asinkron Berdasarkan Path Baru)
+const WishSection = lazy(
+  () => import("./components/sections/WishComponent.jsx"),
+);
+const Profile = lazy(
+  () => import("./components/sections/ProfileComponent.jsx"),
+);
+const Mesangih = lazy(
+  () => import("./components/sections/MesangihComponent.jsx"),
+);
+const LocationComponent = lazy(
+  () => import("./components/sections/LocationComponent.jsx"),
+);
+const CountdownComponent = lazy(
+  () => import("./components/sections/CountdownComponent.jsx"),
+);
+const Gallery = lazy(
+  () => import("./components/sections/GalleryComponent.jsx"),
+);
+const AccountNumber = lazy(
+  () => import("./components/sections/AccountNumberComponent.jsx"),
+);
+const Footer = lazy(() => import("./components/sections/FooterComponent.jsx"));
+
+// Fallback loader saat komponen section sedang diunduh di background
+const SectionLoader = () => (
+  <div className="w-full py-16 flex items-center justify-center text-zinc-600 text-xs tracking-[0.3em] uppercase">
+    Loading Content...
+  </div>
+);
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [startHeroAnim, setStartHeroAnim] = useState(false);
   const [guestName, setGuestName] = useState("Tamu Undangan");
-
-  // State baru untuk melacak apakah musik sedang berputar atau mati (mute)
   const [isPlaying, setIsPlaying] = useState(false);
 
   const audioRef = useRef(null);
 
+  // Ambil parameter nama tamu dari URL (?to=NamaTamu)
   const updateGuestName = useCallback(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
@@ -43,21 +70,33 @@ const App = () => {
     };
   }, [updateGuestName]);
 
+  // Clean-up audio instance saat unmount untuk mencegah memory leak
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
+
   const handleOpenInvitation = () => {
+    // Memuat musik dari folder public/music/ secara streaming (tanpa membebani bundle JS)
     if (!audioRef.current) {
-      audioRef.current = new Audio(backsoundSong);
+      audioRef.current = new Audio("/music/wedding-agung-and-riska.mp3");
       audioRef.current.loop = true;
     }
 
     audioRef.current
       .play()
       .then(() => {
-        setIsPlaying(true); // Musik berhasil berputar
+        setIsPlaying(true);
       })
       .catch((err) => {
         console.log("Autoplay audio diblokir atau gagal dimuat:", err);
       });
 
+    // Request Mode Fullscreen Browser
     const element = document.documentElement;
     if (element.requestFullscreen) {
       element.requestFullscreen();
@@ -70,7 +109,6 @@ const App = () => {
     setIsOpen(true);
   };
 
-  // Fungsi baru untuk toggle Play / Pause musik lewat tombol controller
   const toggleMusic = () => {
     if (!audioRef.current) return;
 
@@ -87,11 +125,15 @@ const App = () => {
     <div className="min-h-screen bg-black font-inter text-zinc-100 overflow-x-hidden relative">
       {/* Konten Utama Undangan */}
       <main
-        className={`w-full space-y-0 ${isOpen ? "min-h-screen" : "h-screen overflow-hidden"}`}
+        className={`w-full space-y-0 ${
+          isOpen ? "min-h-screen" : "h-screen overflow-hidden"
+        }`}
       >
         <Hero triggerAnimation={startHeroAnim} />
+
+        {/* Suspense mengisolasi proses muat komponen section yang di-lazy load */}
         {isOpen && (
-          <>
+          <Suspense fallback={<SectionLoader />}>
             <WishSection />
             <Profile />
             <Mesangih />
@@ -100,12 +142,11 @@ const App = () => {
             <Gallery />
             <AccountNumber />
             <Footer />
-          </>
+          </Suspense>
         )}
       </main>
 
       {/* FLOATING AUDIO CONTROLLER BUTTON */}
-      {/* Tombol ini akan melayang di kanan bawah layar hanya setelah undangan dibuka */}
       {isOpen && (
         <button
           onClick={toggleMusic}
@@ -113,7 +154,6 @@ const App = () => {
           title={isPlaying ? "Mute Music" : "Play Music"}
         >
           {isPlaying ? (
-            // Ikon Speaker Menyala (Sedang Play) + Efek animasi berdenyut halus
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -129,7 +169,6 @@ const App = () => {
               <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
             </svg>
           ) : (
-            // Ikon Speaker Dicoret (Sedang Mute / Pause)
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

@@ -10,8 +10,8 @@ const containerVariants = {
     transition: {
       duration: 0.8,
       ease: [0.25, 1, 0.5, 1],
-      delayChildren: 0.3, // Menunggu box muncul sebelum menganimasi anak-anaknya
-      staggerChildren: 0.2, // Jeda antar nama yang muncul berurutan
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
     },
   },
 };
@@ -29,7 +29,7 @@ const itemVariants = {
   },
 };
 
-const Mesangih = ({
+const MesangihComponents = ({
   candidates = [
     {
       id: 1,
@@ -44,24 +44,24 @@ const Mesangih = ({
   ],
 }) => {
   return (
-    <section className="relative w-full bg-black text-white py-20 px-6 flex flex-col items-center justify-center overflow-hidden select-none font-inter">
-      {/* Background Lighting/Glow Aksen Emas Bernapas (Pulse Animation) */}
+    <section className="relative w-full bg-black text-white py-20 px-6 flex flex-col items-center justify-center overflow-hidden select-none">
+      {/* Background Lighting/Glow Aksen Emas Bernapas */}
       <motion.div
         animate={{
           scale: [1, 1.15, 1],
-          opacity: [0.3, 0.6, 0.3],
+          opacity: [0.25, 0.5, 0.25],
         }}
         transition={{
           duration: 6,
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 md:w-96 md:h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none will-change-transform"
       />
 
       {/* Kontainer Utama */}
       <div className="relative z-10 w-full max-w-2xl flex flex-col items-center text-center space-y-10">
-        {/* ================= HEADER / JUDUL ================= */}
+        {/* HEADER / JUDUL */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,29 +69,24 @@ const Mesangih = ({
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center space-y-3"
         >
-          {/* Sub-judul Adat (Opsional jika ingin diaktifkan kembali) */}
-          {/* 
-          <span className="text-xs uppercase tracking-[0.4em] font-light text-amber-400/90">
+          <span className="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-light text-amber-300/80">
             Upacara Manusa Yadnya
-          </span> 
-          */}
+          </span>
 
-          {/* Judul Utama */}
-          <h2 className="text-3xl md:text-4xl text-white tracking-wide font-normal pt-1">
+          <h2 className="text-2xl md:text-3xl text-white tracking-wide font-serif font-light pt-1">
             Upacara Mesangih / Potong Gigi
           </h2>
 
-          {/* Aksentuasi Garis Tipis Emas */}
-          <div className="w-12 h-[1px] bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mt-2" />
+          <div className="w-16 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mt-2" />
         </motion.div>
 
-        {/* ================= SINGLE BOX UNTUK SEMUA NAMA (STAGGERED ANIMATION) ================= */}
+        {/* SINGLE BOX UNTUK SEMUA NAMA */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="w-full max-w-md bg-zinc-950/80 border border-zinc-800/80 hover:border-amber-500/30 rounded-2xl p-6 md:p-8 flex flex-col items-center divide-y divide-zinc-800/60 backdrop-blur-sm transition-colors duration-500 shadow-2xl"
+          className="w-full max-w-md bg-zinc-950/80 border border-zinc-800/80 hover:border-amber-500/30 rounded-2xl p-6 md:p-8 flex flex-col items-center divide-y divide-zinc-800/60 backdrop-blur-md transition-all duration-300 shadow-2xl"
         >
           {candidates.map((person, index) => (
             <motion.div
@@ -105,15 +100,15 @@ const Mesangih = ({
                     : "py-6"
               }`}
             >
-              {/* Role (jika ada) */}
+              {/* Role */}
               {person.role && (
-                <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-amber-300/80 font-medium mb-2">
+                <span className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-amber-300/80 font-light mb-2">
                   {person.role}
                 </span>
               )}
 
               {/* Nama Peserta */}
-              <h3 className="text-xl font-lobster md:text-2xl text-zinc-100 font-medium tracking-wide leading-relaxed">
+              <h3 className="text-lg md:text-xl font-serif text-zinc-100 font-normal tracking-wide leading-relaxed">
                 {person.name}
               </h3>
             </motion.div>
@@ -124,4 +119,4 @@ const Mesangih = ({
   );
 };
 
-export default Mesangih;
+export default MesangihComponents;

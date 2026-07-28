@@ -1,19 +1,27 @@
 import { useState, useEffect } from "react";
-import imageHeroOne from "../assets/images/wedding-agung-and-riska-slider-1.webp";
-import imageHeroTwo from "../assets/images/wedding-agung-and-riska-slider-2.webp";
 import { motion } from "motion/react";
 
-const Hero = ({
+// Default images mengarah langsung ke folder public/images/
+const DEFAULT_SLIDER_IMAGES = [
+  {
+    src: "/images/wedding-agung-and-riska-slider-1.webp",
+    alt: "Foto Prewedding Agung dan Riska Utama",
+  },
+  {
+    src: "/images/wedding-agung-and-riska-slider-2.webp",
+    alt: "Momen Bahagia Agung Riska di Bali",
+  },
+];
+
+const HeroComponent = ({
   triggerAnimation = false,
-  sliderImages = [
-    { src: imageHeroOne, alt: "Foto Prewedding Agung dan Riska Utama" },
-    { src: imageHeroTwo, alt: "Momen Bahagia Agung Riska di Bali" },
-  ],
+  sliderImages = DEFAULT_SLIDER_IMAGES,
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // Auto-slide effect
   useEffect(() => {
-    if (sliderImages.length === 0) return;
+    if (!sliderImages || sliderImages.length <= 1) return;
 
     const sliderTimer = setInterval(() => {
       setCurrentImageIndex(
@@ -22,35 +30,40 @@ const Hero = ({
     }, 4000);
 
     return () => clearInterval(sliderTimer);
-  }, [sliderImages.length]);
+  }, [sliderImages]);
 
   return (
     <section className="text-center h-screen bg-black text-white font-inter overflow-hidden relative w-full">
-      {/* 
-        PENYESUAIAN POSISI AGAK KE BAWAH:
-        - Mengubah 'items-center' menjadi 'items-end' (dorong ke bawah)
-        - Menambahkan 'pb-28 md:pb-36' sebagai jarak aman dari tepi bawah layar
-      */}
+      {/* Kontainer Utama dengan Posisi Lower-Third */}
       <div className="relative h-screen flex items-end justify-center px-4 pb-28 md:pb-36 overflow-hidden w-full">
         {/* SLIDER BACKGROUND IMAGES */}
         <div className="absolute inset-0 z-0 pointer-events-none">
-          {sliderImages.map((image, index) => (
-            <img
-              key={index}
-              src={image.src}
-              alt={image.alt}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
-                index === currentImageIndex ? "opacity-100" : "opacity-0"
-              }`}
-              loading="eager"
-            />
-          ))}
-          <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/30 to-black/80"></div>
+          {sliderImages.map((image, index) => {
+            const isActive = index === currentImageIndex;
+            const isFirstImage = index === 0;
+
+            return (
+              <img
+                key={image.src || index}
+                src={image.src}
+                alt={image.alt}
+                fetchPriority={isFirstImage ? "high" : "auto"}
+                loading={isFirstImage ? "eager" : "lazy"}
+                decoding="async"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                  isActive ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            );
+          })}
+
+          {/* Overlay Gradient Premium Black */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80" />
         </div>
 
-        {/* CONTEN WRAPPER - POSISI AGAK BAWAH */}
+        {/* CONTENT WRAPPER - LOWER THIRD POSITION */}
         <div className="relative z-10 flex flex-col items-center space-y-4 md:space-y-6">
-          {/* Teks 1: Sub-title atas */}
+          {/* Teks 1: Sub-title Atas */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={triggerAnimation ? { opacity: 1, y: 0 } : {}}
@@ -104,4 +117,4 @@ const Hero = ({
   );
 };
 
-export default Hero;
+export default HeroComponent;
