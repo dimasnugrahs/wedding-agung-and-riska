@@ -66,14 +66,14 @@ const FooterComponent = () => {
       >
         {/* 1. JUDUL TERIMA KASIH */}
         <motion.div variants={textFadeIn} className="w-full">
-          <h2 className="text-xl md:text-2xl font-serif font-light tracking-widest uppercase text-white">
+          <h2 className="text-2xl md:text-3xl tracking-widest text-white">
             TERIMA KASIH
           </h2>
         </motion.div>
 
         {/* 2. PARAGRAF UCAPAN UTAMA */}
         <motion.div variants={textFadeIn} className="w-full">
-          <p className="text-xs md:text-sm font-light text-zinc-300 leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base font-light text-zinc-400 leading-relaxed">
             Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila
             Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada
             kami.

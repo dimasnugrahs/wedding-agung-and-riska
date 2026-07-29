@@ -32,7 +32,7 @@ const profiles = [
   {
     id: "groom",
     name: "I Gusti Agung Putu Widiana Putra",
-    nickname: "Agung",
+    nickname: "Agung Widiana",
     role: "Putra Pertama dari Pasangan",
     father: "I Gusti Agung Winaya",
     mother: "Luh Sumerasih",
@@ -43,7 +43,7 @@ const profiles = [
   {
     id: "bride",
     name: "Ni Wayan Riska Riyani",
-    nickname: "Riska",
+    nickname: "Riska Riyani",
     role: "Putri Pertama dari Pasangan",
     father: "I Made Mastra",
     mother: "Ni Nyoman Manis",
@@ -63,7 +63,7 @@ const ProfileComponents = () => {
           return (
             <div
               key={person.id}
-              className={`relative min-h-[80vh] md:min-h-[500px] flex items-end rounded-3xl overflow-hidden border border-zinc-800/80 shadow-2xl ${
+              className={`relative min-h-[80vh] md:min-h-500px flex items-end rounded-3xl overflow-hidden border border-zinc-800/80 shadow-2xl ${
                 isEven ? "justify-start" : "justify-end"
               }`}
             >
@@ -79,7 +79,7 @@ const ProfileComponents = () => {
                   transition={{ duration: 1.5, ease: [0.25, 1, 0.5, 1] }}
                 />
                 <div
-                  className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent md:bg-gradient-to-r ${
+                  className={`absolute inset-0 bg-linear-to-t from-black/95 via-black/50 to-transparent md:bg-linear-to-r ${
                     isEven
                       ? "md:from-black/90 md:via-black/60 md:to-transparent"
                       : "md:from-transparent md:via-black/60 md:to-black/90"
@@ -98,7 +98,7 @@ const ProfileComponents = () => {
                 }`}
               >
                 <motion.div variants={textFadeIn} className="space-y-1">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif text-white font-normal tracking-wide leading-tight">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-angele text-white font-normal tracking-wide leading-tight">
                     {person.name}
                   </h3>
                   <p className="text-xs uppercase tracking-[0.3em] text-amber-300/90 font-light">
@@ -110,11 +110,11 @@ const ProfileComponents = () => {
                   <p className="text-[10px] sm:text-xs uppercase tracking-wider text-zinc-400 font-light">
                     {person.role}:
                   </p>
-                  <p className="text-sm sm:text-base font-serif text-zinc-200">
+                  <p className="text-sm sm:text-xl font-angele text-zinc-200">
                     {person.father}
                   </p>
-                  <p className="text-xs text-amber-400/80 font-serif">&</p>
-                  <p className="text-sm sm:text-base font-serif text-zinc-200">
+                  <p className="text-xs text-zinc-200 font-angele">&</p>
+                  <p className="text-sm sm:text-xl font-angele text-zinc-200">
                     {person.mother}
                   </p>
                 </motion.div>

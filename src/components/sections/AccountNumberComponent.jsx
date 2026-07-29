@@ -1,6 +1,30 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
+// Variants animasi container dan anak-anaknya
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.25, 1, 0.5, 1],
+    },
+  },
+};
+
 const AccountNumberComponent = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -36,9 +60,12 @@ const AccountNumberComponent = () => {
 
   return (
     <section className="relative w-full h-screen bg-black flex flex-col justify-end items-start md:justify-center md:items-center px-6 py-16 md:py-0 text-zinc-300 overflow-hidden select-none">
-      {/* Background Image Teroptimasi dari /public/images/ */}
+      {/* Background Image Teroptimasi */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <img
+        <motion.img
+          initial={{ scale: 1.08 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
           src="/images/wedding-agung-and-riska-account-number.webp"
           alt="Latar Belakang Hadiah Digital"
           loading="lazy"
@@ -48,23 +75,38 @@ const AccountNumberComponent = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
       </div>
 
-      {/* Konten Utama */}
-      <div className="relative z-10 flex flex-col items-start md:items-center w-full max-w-sm md:max-w-2xl text-left md:text-center space-y-8">
+      {/* Konten Utama dengan Animasi Scroll Reveal */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="relative z-10 flex flex-col items-start md:items-center w-full max-w-sm md:max-w-2xl text-left md:text-center space-y-8"
+      >
         <div className="space-y-4 w-full">
-          <div className="text-3xl font-display tracking-widest text-white">
-            DIGITAL GIFT
-          </div>
-          <p className="text-sm font-light text-zinc-400 leading-relaxed md:px-4">
+          <motion.div
+            variants={itemVariants}
+            className="text-2xl md:text-3xl tracking-widest text-white"
+          >
+            Digital Gift
+          </motion.div>
+          <motion.p
+            variants={itemVariants}
+            className="text-xs sm:text-sm md:text-base font-light text-zinc-400 leading-relaxed md:px-4"
+          >
             Doa restu Anda merupakan hal yang sangat berarti bagi kami. Bagi
             Anda yang ingin memberikan tanda kasih atau hadiah kepada kami,
             dengan rasa syukur kami dapat menerima gift terbaik kalian.
-          </p>
+          </motion.p>
         </div>
 
         {/* Tombol Pemicu Modal */}
-        <button
+        <motion.button
+          variants={itemVariants}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           onClick={() => setIsOpenModal(true)}
-          className="flex items-center gap-2.5 border border-zinc-500/20 bg-zinc-600/10 hover:border-zinc-500/50 hover:bg-zinc-600/40 text-white font-medium px-8 py-3.5 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all text-xs uppercase tracking-widest cursor-pointer group"
+          className="flex items-center gap-2.5 border border-amber-300/30 bg-amber-300/10 hover:border-amber-300/60 hover:bg-amber-300/20 text-white font-medium px-8 py-3.5 rounded-full shadow-lg transition-all text-xs uppercase tracking-widest cursor-pointer group backdrop-blur-md"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -74,21 +116,21 @@ const AccountNumberComponent = () => {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="w-4 h-4 text-amber-300 group-hover:animate-pulse"
+            className="w-4 h-4 text-amber-300 group-hover:rotate-12 transition-transform duration-300"
           >
             <rect width="20" height="14" x="2" y="5" rx="2" />
             <line x1="2" y1="10" x2="22" y2="10" />
           </svg>
           Kirim Hadiah
-        </button>
+        </motion.button>
 
-        <div className="pt-4 w-full">
-          <div className="hidden md:block w-1/3 h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent mx-auto mb-6" />
-          <p className="font-light text-sm italic text-zinc-400 tracking-wide">
+        <motion.div variants={itemVariants} className="pt-4 w-full">
+          <div className="hidden md:block w-1/3 h-px bg-linear-to-r from-transparent via-amber-500/30 to-transparent mx-auto mb-6" />
+          <p className="italic font-light text-xs md:text-sm text-zinc-400 tracking-wide">
             Terima kasih atas doa restu & hadiah Anda
           </p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* POP-UP MODAL DIGITAL REKENING */}
       <AnimatePresence>
@@ -99,8 +141,9 @@ const AccountNumberComponent = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
               onClick={() => setIsOpenModal(false)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
+              className="absolute inset-0 bg-black/80 backdrop-blur-md cursor-pointer"
             />
 
             {/* Container Modal */}
@@ -112,10 +155,13 @@ const AccountNumberComponent = () => {
               className="relative w-full max-w-sm flex flex-col items-center gap-6 z-10"
             >
               {/* KARTU REKENING BERGAYA ATM BRI */}
-              <div className="relative w-full aspect-[1.66/1] bg-gradient-to-br from-[#1c1c1e] via-[#0f0f10] to-[#050505] border border-amber-500/20 rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] p-6 flex flex-col justify-between items-start text-left overflow-hidden">
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="relative w-full aspect-[1.66/1] bg-gradient-to-br from-[#1c1c1e] via-[#0f0f10] to-[#050505] border border-amber-500/30 rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.9)] p-6 flex flex-col justify-between items-start text-left overflow-hidden"
+              >
                 {/* Efek Pola Geometris */}
                 <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:14px_14px] pointer-events-none" />
-                <div className="absolute -left-10 -top-10 w-40 h-40 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -left-10 -top-10 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
                 {/* Header Kartu: Logo BRI & Chip */}
                 <div className="w-full flex justify-between items-start relative z-10">
@@ -137,7 +183,7 @@ const AccountNumberComponent = () => {
 
                 {/* Tengah Kartu: Nomor Rekening & Nama */}
                 <div className="space-y-1 w-full z-10">
-                  <p className="font-mono text-lg md:text-xl text-zinc-100 tracking-[0.2em] font-medium drop-shadow-md">
+                  <p className="font-mono text-lg md:text-xl text-amber-100 tracking-[0.2em] font-medium drop-shadow-md">
                     {accountNumber.replace(/(\d{4})/g, "$1 ").trim()}
                   </p>
                   <p className="text-[11px] uppercase tracking-widest text-zinc-400 font-medium font-sans truncate">
@@ -147,32 +193,37 @@ const AccountNumberComponent = () => {
 
                 {/* Bottom Kartu: Tombol Salin Rekening */}
                 <div className="w-full flex justify-between items-end relative z-10">
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={handleCopy}
-                    className="inline-flex items-center gap-2 bg-zinc-900/90 hover:bg-zinc-800 text-white hover:text-amber-300 text-xs tracking-wider uppercase px-4 py-2.5 rounded-lg border border-zinc-500 transition-all shadow-md cursor-pointer active:scale-95"
+                    className="inline-flex items-center gap-2 bg-zinc-900/90 hover:bg-zinc-800 text-white hover:text-amber-300 text-[11px] tracking-wider uppercase px-4 py-2.5 rounded-lg border border-amber-500/30 transition-colors shadow-md cursor-pointer"
                   >
                     {copied ? "Tersalin!" : "Salin Nomor Rekening"}
-                  </button>
+                  </motion.button>
 
                   <AnimatePresence>
                     {copied && (
                       <motion.span
                         initial={{ opacity: 0, y: 10, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        className="absolute bottom-12 left-0 bg-emerald-950/90 text-emerald-400 border border-emerald-800/50 text-[10px] uppercase tracking-widest px-3 py-1 rounded-md shadow-lg"
+                        exit={{ opacity: 0, y: -10, scale: 0.9 }}
+                        className="absolute bottom-12 left-0 bg-emerald-950/90 text-emerald-400 border border-emerald-800/50 text-[10px] uppercase tracking-widest px-3 py-1 rounded-md shadow-lg backdrop-blur-sm"
                       >
                         Tersalin ke Clipboard!
                       </motion.span>
                     )}
                   </AnimatePresence>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Tombol Close Modal */}
-              <button
+              <motion.button
+                whileHover={{ scale: 1.1, rotate: 90 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.2 }}
                 onClick={() => setIsOpenModal(false)}
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 shadow-md transition-all active:scale-95 cursor-pointer"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 shadow-md transition-colors cursor-pointer"
                 title="Tutup Modal"
               >
                 <svg
@@ -188,7 +239,7 @@ const AccountNumberComponent = () => {
                   <line x1="18" y1="6" x2="6" y2="18" />
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
-              </button>
+              </motion.button>
             </motion.div>
           </div>
         )}

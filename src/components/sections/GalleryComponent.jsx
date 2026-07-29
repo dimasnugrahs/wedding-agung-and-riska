@@ -68,7 +68,7 @@ const GalleryComponents = () => {
         transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
         className="space-y-2 px-4 mx-auto max-w-xl"
       >
-        <h3 className="text-2xl md:text-3xl text-white tracking-wide font-serif font-normal">
+        <h3 className="text-2xl md:text-3xl text-white tracking-wide font-normal">
           Galeri Kebahagiaan
         </h3>
         <p className="text-[10px] uppercase tracking-[0.3em] text-amber-300/90 font-light">
@@ -138,7 +138,7 @@ const GalleryComponents = () => {
         transition={{ duration: 1, delay: 0.2 }}
         className="pt-4 px-4"
       >
-        <p className="text-zinc-400 font-serif italic text-xs md:text-sm font-light tracking-wide">
+        <p className="text-zinc-400 italic text-xs md:text-sm font-light tracking-wide">
           "Meniti waktu, mengukir cerita abadi bersama."
         </p>
       </motion.div>
@@ -151,7 +151,7 @@ const GalleryComponents = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setCurrentIndex(null)}
-            className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/95 p-4 cursor-zoom-out backdrop-blur-md"
+            className="fixed inset-0 z-1000 flex items-center justify-center bg-black/95 p-4 cursor-zoom-out backdrop-blur-md"
           >
             {/* Tombol Close */}
             <button

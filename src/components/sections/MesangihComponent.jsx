@@ -69,15 +69,15 @@ const MesangihComponents = ({
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center space-y-3"
         >
-          <span className="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-light text-amber-300/80">
+          <span className="text-[10px] uppercase tracking-[0.4em] font-light text-amber-300/80">
             Upacara Manusa Yadnya
           </span>
 
-          <h2 className="text-2xl md:text-3xl text-white tracking-wide font-serif font-light pt-1">
+          <h2 className="text-2xl md:text-3xl text-white tracking-wide font-normal pt-1">
             Upacara Mesangih / Potong Gigi
           </h2>
 
-          <div className="w-16 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mt-2" />
+          <div className="w-16 h-px bg-linear-to-r from-transparent via-amber-500/50 to-transparent mt-2" />
         </motion.div>
 
         {/* SINGLE BOX UNTUK SEMUA NAMA */}
@@ -100,15 +100,8 @@ const MesangihComponents = ({
                     : "py-6"
               }`}
             >
-              {/* Role */}
-              {person.role && (
-                <span className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-amber-300/80 font-light mb-2">
-                  {person.role}
-                </span>
-              )}
-
               {/* Nama Peserta */}
-              <h3 className="text-lg md:text-xl font-serif text-zinc-100 font-normal tracking-wide leading-relaxed">
+              <h3 className="text-lg md:text-xl text-zinc-100 font-normal tracking-wide leading-relaxed">
                 {person.name}
               </h3>
             </motion.div>
