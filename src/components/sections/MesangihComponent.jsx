@@ -101,7 +101,7 @@ const MesangihComponents = ({
               }`}
             >
               {/* Nama Peserta */}
-              <h3 className="text-lg md:text-xl text-zinc-100 font-normal tracking-wide leading-relaxed">
+              <h3 className="text-md md:text-xl text-zinc-100 font-normal tracking-wide leading-relaxed">
                 {person.name}
               </h3>
             </motion.div>

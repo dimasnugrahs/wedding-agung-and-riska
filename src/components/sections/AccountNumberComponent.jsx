@@ -72,7 +72,7 @@ const AccountNumberComponent = () => {
           decoding="async"
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/70 to-black/90" />
       </div>
 
       {/* Konten Utama dengan Animasi Scroll Reveal */}
@@ -92,7 +92,7 @@ const AccountNumberComponent = () => {
           </motion.div>
           <motion.p
             variants={itemVariants}
-            className="text-xs sm:text-sm md:text-base font-light text-zinc-400 leading-relaxed md:px-4"
+            className="text-sm sm:text-sm md:text-base font-light text-zinc-400 leading-relaxed md:px-4"
           >
             Doa restu Anda merupakan hal yang sangat berarti bagi kami. Bagi
             Anda yang ingin memberikan tanda kasih atau hadiah kepada kami,
@@ -106,7 +106,7 @@ const AccountNumberComponent = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsOpenModal(true)}
-          className="flex items-center gap-2.5 border border-amber-300/30 bg-amber-300/10 hover:border-amber-300/60 hover:bg-amber-300/20 text-white font-medium px-8 py-3.5 rounded-full shadow-lg transition-all text-xs uppercase tracking-widest cursor-pointer group backdrop-blur-md"
+          className="flex items-center gap-2.5 border border-amber-300/30 bg-amber-300/10 hover:border-amber-300/60 hover:bg-amber-300/20 text-white font-medium px-8 py-3.5 rounded-xl shadow-lg transition-all text-xs uppercase tracking-widest cursor-pointer group backdrop-blur-md"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +135,7 @@ const AccountNumberComponent = () => {
       {/* POP-UP MODAL DIGITAL REKENING */}
       <AnimatePresence>
         {isOpenModal && (
-          <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-1000 flex items-center justify-center p-4">
             {/* Backdrop Gelap dengan Blur */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -157,23 +157,23 @@ const AccountNumberComponent = () => {
               {/* KARTU REKENING BERGAYA ATM BRI */}
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="relative w-full aspect-[1.66/1] bg-gradient-to-br from-[#1c1c1e] via-[#0f0f10] to-[#050505] border border-amber-500/30 rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.9)] p-6 flex flex-col justify-between items-start text-left overflow-hidden"
+                className="relative w-full aspect-[1.66/1] bg-linear-to-br from-[#1c1c1e] via-[#0f0f10] to-[#050505] border border-amber-500/30 rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.9)] p-6 flex flex-col justify-between items-start text-left overflow-hidden"
               >
                 {/* Efek Pola Geometris */}
-                <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:14px_14px] pointer-events-none" />
+                <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#fff_1px,transparent_1px)] bg-size-14px_14px pointer-events-none" />
                 <div className="absolute -left-10 -top-10 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
                 {/* Header Kartu: Logo BRI & Chip */}
                 <div className="w-full flex justify-between items-start relative z-10">
                   <div className="flex flex-col space-y-0.5">
-                    <span className="text-xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-blue-400 to-blue-300 font-sans italic drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+                    <span className="text-xl font-black tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-blue-200 via-blue-400 to-blue-300 font-sans italic drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
                       BRI<span className="text-white font-normal">.</span>
                     </span>
                   </div>
 
                   {/* Ornamen Chip ATM Emas */}
-                  <div className="w-9 h-7 bg-gradient-to-br from-amber-200 via-yellow-400 to-amber-500 rounded-md border border-amber-600/30 p-1 flex flex-col justify-between opacity-95 shadow-sm">
-                    <div className="h-full w-full border border-amber-100/20 rounded-xs grid grid-cols-3 gap-[2px]">
+                  <div className="w-9 h-7 bg-linear-to-br from-amber-200 via-yellow-400 to-amber-500 rounded-md border border-amber-600/30 p-1 flex flex-col justify-between opacity-95 shadow-sm">
+                    <div className="h-full w-full border border-amber-100/20 rounded-xs grid grid-cols-3 gap-2px">
                       <div className="border-r border-b border-amber-700/20" />
                       <div className="border-r border-b border-amber-700/20" />
                       <div className="border-b border-amber-700/20" />

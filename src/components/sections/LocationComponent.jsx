@@ -58,7 +58,7 @@ const LocationComponent = () => {
             backgroundImage: `url('/images/wedding-agung-and-riska-location.webp')`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/85 to-black/90" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/90 via-black/85 to-black/90" />
       </div>
 
       {/* AREA KONTEN UTAMA */}
@@ -71,7 +71,7 @@ const LocationComponent = () => {
       >
         {/* Header Section */}
         <motion.div variants={textFadeIn} className="w-full space-y-3">
-          <h2 className="text-2xl md:text-3xl font-serif tracking-widest text-zinc-100 uppercase">
+          <h2 className="text-2xl md:text-3xl tracking-widest text-zinc-100 uppercase">
             Save The Date
           </h2>
           <div className="h-px bg-zinc-700/80 w-full my-4" />
@@ -79,7 +79,7 @@ const LocationComponent = () => {
 
         {/* Teks Pembukaan */}
         <motion.div variants={textFadeIn} className="w-full">
-          <p className="leading-relaxed font-light text-zinc-300 text-xs md:text-sm">
+          <p className="leading-relaxed font-light text-zinc-300 text-sm md:text-sm">
             Atas Asung Kerta Wara Nugraha Ida Sang Hyang Widi Wasa/Tuhan Yang
             Maha Esa, Kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir
             pada acara Pawiwahan (Pernikahan) putra dan putri kami yang akan
@@ -92,11 +92,11 @@ const LocationComponent = () => {
         <div className="w-full space-y-8">
           {events.map((event, index) => (
             <motion.div key={index} variants={textFadeIn} className="space-y-3">
-              <h3 className="text-lg md:text-xl font-serif text-amber-200">
+              <h3 className="text-lg md:text-xl font-angele text-amber-200">
                 {event.title}
               </h3>
 
-              <div className="space-y-1 text-xs md:text-sm text-zinc-300 font-light">
+              <div className="space-y-1 text-sm md:text-sm text-zinc-300 font-light">
                 <p className="font-medium text-zinc-200">{event.date}</p>
                 <p>{event.time}</p>
                 <p className="pt-1 text-zinc-400">{event.address}</p>
@@ -135,12 +135,12 @@ const LocationComponent = () => {
 
         {/* Teks Penutup */}
         <motion.div variants={textFadeIn} className="w-full space-y-2 pt-2">
-          <p className="leading-relaxed font-light text-zinc-300 text-xs md:text-sm">
+          <p className="leading-relaxed font-light text-zinc-300 text-sm md:text-sm">
             Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
             Bapak/Ibu/Saudara/i berkenan hadir serta memberikan doa restu kepada
             kedua mempelai.
           </p>
-          <p className="font-light text-zinc-400 italic text-xs md:text-sm">
+          <p className="font-light text-zinc-400 italic text-sm md:text-sm">
             Atas kehadiran dan doa restunya, kami ucapkan terima kasih.
           </p>
         </motion.div>

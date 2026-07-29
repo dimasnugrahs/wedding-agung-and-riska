@@ -98,7 +98,7 @@ const ProfileComponents = () => {
                 }`}
               >
                 <motion.div variants={textFadeIn} className="space-y-1">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-angele text-white font-normal tracking-wide leading-tight">
+                  <h3 className="text-xl sm:text-3xl md:text-4xl font-angele text-white font-normal tracking-wide leading-tight">
                     {person.name}
                   </h3>
                   <p className="text-xs uppercase tracking-[0.3em] text-amber-300/90 font-light">

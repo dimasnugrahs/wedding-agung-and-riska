@@ -50,7 +50,7 @@ const FooterComponent = () => {
           transition={{ duration: 1.5, ease: [0.25, 1, 0.5, 1] }}
         />
         {/* Overlay Black Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/70 to-black/95" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/70 to-black/95" />
       </div>
 
       {/* Spacer Atas (Desktop saja untuk keseimbangan vertikal) */}
@@ -73,7 +73,7 @@ const FooterComponent = () => {
 
         {/* 2. PARAGRAF UCAPAN UTAMA */}
         <motion.div variants={textFadeIn} className="w-full">
-          <p className="text-xs sm:text-sm md:text-base font-light text-zinc-400 leading-relaxed">
+          <p className="text-sm sm:text-sm md:text-base font-light text-zinc-400 leading-relaxed">
             Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila
             Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada
             kami.
@@ -85,7 +85,7 @@ const FooterComponent = () => {
           <p className="text-xs md:text-sm font-light text-zinc-400 italic">
             Atas kehadiran dan doa restunya kami ucapkan terima kasih.
           </p>
-          <div className="h-px bg-gradient-to-r from-transparent via-zinc-700/80 to-transparent my-4 md:my-6 w-full" />
+          <div className="h-px bg-linear-to-r from-transparent via-zinc-700/80 to-transparent my-4 md:my-6 w-full" />
         </motion.div>
       </motion.div>
 

@@ -58,13 +58,13 @@ const WishComponent = () => {
 
         {/* Garis Pembatas Tipis */}
         <motion.div variants={fadeInVariant} className="flex justify-center">
-          <div className="w-12 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
+          <div className="w-12 h-px bg-linear-to-r from-transparent via-amber-500/50 to-transparent" />
         </motion.div>
 
         {/* Terjemahan Sloka */}
         <motion.p
           variants={fadeInVariant}
-          className="text-zinc-300 font-light text-xs sm:text-sm md:text-base max-w-xl mx-auto leading-relaxed"
+          className="text-zinc-300 font-light text-sm sm:text-sm md:text-base max-w-xl mx-auto leading-relaxed"
         >
           Wahai pasangan suami-istri, semoga kalian tetap bersatu dan tidak
           pernah terpisahkan. Semoga kalian mencapai hidup penuh kebahagiaan,
