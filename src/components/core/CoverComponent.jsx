@@ -49,7 +49,7 @@ const CoverComponent = ({
           }
         }
       }}
-      className="fixed inset-0 z-[999] flex flex-col justify-between items-center text-center bg-black select-none overflow-hidden"
+      className="fixed inset-0 z-999 flex flex-col justify-between items-center text-center bg-black select-none overflow-hidden"
     >
       {/* Hidden/Preloaded Image Tag untuk memicu onLoad */}
       <img
@@ -168,7 +168,7 @@ const CoverComponent = ({
               >
                 <button
                   onClick={handleOpenInvitation}
-                  className="flex items-center gap-2.5 border border-amber-300/30 bg-amber-300/10 backdrop-blur-md hover:bg-gradient-to-r hover:from-amber-600 hover:to-amber-500 text-white font-medium px-8 py-3.5 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all text-sm group cursor-pointer"
+                  className="flex items-center gap-2.5 border border-amber-300/30 bg-amber-300/10 backdrop-blur-md hover:bg-linear-to-r hover:from-amber-600 hover:to-amber-500 text-white font-medium px-8 py-3.5 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all text-sm group cursor-pointer"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
