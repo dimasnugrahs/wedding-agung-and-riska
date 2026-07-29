@@ -1,10 +1,22 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
-const CoverComponent = ({ guestName, handleOpenInvitation, onTiraiRemaining }) => {
-  const [animationPhase, setAnimationPhase] = useState("wedding_of");
+const CoverComponent = ({
+  guestName,
+  handleOpenInvitation,
+  onTiraiRemaining,
+}) => {
+  // State untuk melacak apakah gambar cover sudah selesai di-load
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [animationPhase, setAnimationPhase] = useState("loading");
 
+  // Timer animasi baru berjalan SETELAH gambar selesai di-load
   useEffect(() => {
+    if (!isImageLoaded) return;
+
+    // Mulai fase animasi pertama
+    setAnimationPhase("wedding_of");
+
     const timer1 = setTimeout(() => {
       setAnimationPhase("names_intro");
     }, 2500);
@@ -17,7 +29,7 @@ const CoverComponent = ({ guestName, handleOpenInvitation, onTiraiRemaining }) =
       clearTimeout(timer1);
       clearTimeout(timer2);
     };
-  }, []);
+  }, [isImageLoaded]);
 
   return (
     <motion.div
@@ -39,7 +51,31 @@ const CoverComponent = ({ guestName, handleOpenInvitation, onTiraiRemaining }) =
       }}
       className="fixed inset-0 z-[999] flex flex-col justify-between items-center text-center bg-black select-none overflow-hidden"
     >
+      {/* Hidden/Preloaded Image Tag untuk memicu onLoad */}
+      <img
+        src="/images/wedding-agung-and-riska-cover.webp"
+        alt="Preload Cover"
+        fetchPriority="high"
+        decoding="async"
+        onLoad={() => setIsImageLoaded(true)}
+        className="hidden"
+      />
+
       <AnimatePresence mode="wait">
+        {/* PHASE 0: Loading / Menunggu Gambar Siap */}
+        {animationPhase === "loading" && (
+          <motion.div
+            key="loading"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 flex items-center justify-center bg-black z-30"
+          >
+            {/* Minimalis Loading Spinner / Indicator */}
+            <div className="w-6 h-6 border-2 border-amber-400/30 border-t-amber-400 rounded-full animate-spin" />
+          </motion.div>
+        )}
+
         {/* PHASE 1: "The Wedding Of" */}
         {animationPhase === "wedding_of" && (
           <motion.div
@@ -81,13 +117,11 @@ const CoverComponent = ({ guestName, handleOpenInvitation, onTiraiRemaining }) =
             transition={{ duration: 0.8 }}
             className="absolute inset-0 flex flex-col justify-between items-center p-6 z-10"
           >
-            {/* Optimized Background Image dari public/images/ */}
+            {/* Background Image yang sudah ter-load */}
             <div className="absolute inset-0 z-0 overflow-hidden">
               <img
                 src="/images/wedding-agung-and-riska-cover.webp"
                 alt="Cover Prewedding"
-                fetchPriority="high"
-                decoding="async"
                 className="w-full h-full object-cover object-center"
               />
               {/* Overlay Gelap Aksen Premium */}
