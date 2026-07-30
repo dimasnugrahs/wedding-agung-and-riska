@@ -41,7 +41,7 @@ const LocationComponent = () => {
     {
       title: "Acara di Rumah Mempelai Pria",
       date: "Rabu, 21 Oktober 2026",
-      time: "08.00 WITA - Selesai",
+      time: "13.00 WITA - Selesai",
       location: "Rumah Mempelai Pria",
       address:
         "Jl. Sabda Paling Gg. I,Dangin Tukadaya, Kec. Jembrana, Kabupaten Jembrana, Bali",
