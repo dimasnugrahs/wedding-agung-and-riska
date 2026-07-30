@@ -93,33 +93,49 @@ const CountdownComponent = ({ targetDate = "2026-10-21T13:00:00" }) => {
           <h2 className="text-2xl md:text-3xl text-white tracking-wide">
             Menuju Hari Bahagia
           </h2>
-          <p className="text-[10px] uppercase tracking-[0.4em] font-light text-amber-300/80">
+          <p className="text-[10px] uppercase tracking-[0.4em] font-light text-amber-300/90">
             Counting Down The Special Day
           </p>
         </motion.div>
 
-        {/* KOTAK COUNTDOWN UTAMA */}
-        <motion.div
-          variants={textFadeIn}
-          className="w-full bg-zinc-950/80 border border-zinc-800/80 hover:border-amber-500/30 rounded-2xl p-6 md:p-8 backdrop-blur-md transition-all duration-300 shadow-2xl"
-        >
-          <div className="grid grid-cols-4 divide-x divide-zinc-800/80 w-full">
-            {timeUnits.map((unit, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center justify-center space-y-2 px-1 md:px-3"
-              >
-                {/* Angka Countdown */}
-                <span className="font-light text-3xl px-5 text-center">
-                  {String(unit.value).padStart(2, "0")}
-                </span>
+        {/* CONTAINER KOTAK COUNTDOWN DAN EFEK KEEMASAN */}
+        <motion.div variants={textFadeIn} className="relative w-full">
+          {/* EFEK KEEMASAN DIBUAT TEPAT DI BEKAS/DI BAWAH KOTAK COUNTDOWN */}
+          <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-full max-w-md h-32 pointer-events-none z-0 flex items-center justify-center">
+            {/* Layer Inner Glow Emas Terang */}
+            <motion.div
+              animate={{ opacity: [0.6, 0.9, 0.6], scale: [0.95, 1.05, 0.95] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="w-3/4 h-20 bg-amber-400/20 rounded-full blur-2xl"
+            />
+            {/* Layer Outer Glow Emas Hangat Luas */}
+            <motion.div
+              animate={{ opacity: [0.4, 0.7, 0.4] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute w-full h-28 bg-amber-600/15 rounded-full blur-3xl"
+            />
+          </div>
 
-                {/* Label Unit */}
-                <span className="text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-zinc-400 font-light">
-                  {unit.label}
-                </span>
-              </div>
-            ))}
+          {/* KOTAK COUNTDOWN UTAMA */}
+          <div className="relative z-10 w-full bg-zinc-950/80 border border-zinc-800/80 hover:border-amber-500/40 rounded-2xl p-6 md:p-8 backdrop-blur-md transition-all duration-300 shadow-[0_20px_50px_rgba(217,119,6,0.12)]">
+            <div className="grid grid-cols-4 divide-x divide-zinc-800/80 w-full">
+              {timeUnits.map((unit, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center justify-center space-y-2 px-1 md:px-3"
+                >
+                  {/* Angka Countdown */}
+                  <span className="font-light text-3xl px-2 md:px-5 text-center text-amber-100">
+                    {String(unit.value).padStart(2, "0")}
+                  </span>
+
+                  {/* Label Unit */}
+                  <span className="text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-zinc-400 font-light">
+                    {unit.label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </motion.div>

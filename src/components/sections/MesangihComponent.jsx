@@ -70,7 +70,7 @@ const MesangihComponents = ({
           className="flex flex-col items-center space-y-3"
         >
           <h2 className="text-2xl md:text-3xl text-white tracking-wide font-normal pt-1">
-            Upacara Mesangih / Potong Gigi
+            Upacara Mesangih
           </h2>
 
           <div className="w-16 h-px bg-linear-to-r from-transparent via-amber-500/50 to-transparent mt-2" />
