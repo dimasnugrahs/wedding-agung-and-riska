@@ -93,6 +93,7 @@ const CountdownComponent = ({ targetDate = "2026-10-21T13:00:00" }) => {
           <h2 className="text-2xl md:text-3xl text-white tracking-wide">
             Menuju Hari Bahagia
           </h2>
+          <div className="w-16 h-px bg-linear-to-r mt-4 from-transparent via-amber-500/50 to-transparent my-2 mx-auto" />
         </motion.div>
 
         {/* CONTAINER KOTAK COUNTDOWN DAN EFEK KEEMASAN */}

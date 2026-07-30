@@ -71,7 +71,7 @@ const GalleryComponents = () => {
         <h3 className="text-2xl md:text-3xl text-white tracking-wide font-normal">
           Galeri Kebahagiaan
         </h3>
-        <div className="w-16 h-px bg-linear-to-r from-transparent via-amber-500/50 to-transparent mt-2" />
+        <div className="w-16 h-px bg-linear-to-r my-4 from-transparent via-amber-500/50 to-transparent my-2 mx-auto" />
         <p className="text-[10px] uppercase tracking-[0.3em] text-amber-300/90 font-light">
           Momen Perjalanan Kami
         </p>
