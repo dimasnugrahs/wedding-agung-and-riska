@@ -65,7 +65,7 @@ const ProfileComponents = () => {
           return (
             <div
               key={person.id}
-              className={`relative min-h-[80vh] md:min-h-[500px] flex items-end rounded-3xl overflow-hidden border border-zinc-800/80 shadow-2xl bg-zinc-950 ${
+              className={`relative min-h-[80vh] md:min-h-500px flex items-end rounded-3xl overflow-hidden border border-zinc-800/80 shadow-2xl bg-zinc-950 ${
                 isEven ? "justify-start" : "justify-end"
               }`}
             >
@@ -84,7 +84,7 @@ const ProfileComponents = () => {
                   transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
                 />
                 <div
-                  className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent md:bg-gradient-to-r ${
+                  className={`absolute inset-0 bg-linear-to-t from-black/95 via-black/50 to-transparent md:bg-linear-to-r ${
                     isEven
                       ? "md:from-black/90 md:via-black/60 md:to-transparent"
                       : "md:from-transparent md:via-black/60 md:to-black/90"

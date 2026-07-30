@@ -72,7 +72,7 @@ const LocationComponent = () => {
       >
         {/* Header Section */}
         <motion.div variants={textFadeIn} className="w-full space-y-3">
-          <h2 className="text-2xl md:text-3xl tracking-widest text-zinc-100 uppercase">
+          <h2 className="text-2xl md:text-3xl tracking-widest text-zinc-100">
             Save The Date
           </h2>
           <div className="h-px bg-zinc-700/80 w-full my-4" />
