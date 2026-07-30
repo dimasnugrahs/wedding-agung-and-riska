@@ -69,10 +69,6 @@ const MesangihComponents = ({
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center space-y-3"
         >
-          <span className="text-[10px] uppercase tracking-[0.4em] font-light text-amber-300/80">
-            Upacara Manusa Yadnya
-          </span>
-
           <h2 className="text-2xl md:text-3xl text-white tracking-wide font-normal pt-1">
             Upacara Mesangih / Potong Gigi
           </h2>
