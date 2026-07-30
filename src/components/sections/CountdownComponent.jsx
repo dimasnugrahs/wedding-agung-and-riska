@@ -135,6 +135,19 @@ const CountdownComponent = ({ targetDate = "2026-10-21T13:00:00" }) => {
             </div>
           </div>
         </motion.div>
+        {/* Footer Quote */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="pt-4 px-4"
+        >
+          <p className="text-zinc-400 italic text-xs md:text-sm font-light tracking-wide">
+            "Hari yang kami nantikan semakin dekat. Semoga langkah kami selalu
+            diberkahi."
+          </p>
+        </motion.div>
       </motion.div>
     </section>
   );
