@@ -45,7 +45,7 @@ const LocationComponent = () => {
       location: "Rumah Mempelai Pria",
       address:
         "Jl. Sabda Paling Gg. I,Dangin Tukadaya, Kec. Jembrana, Kabupaten Jembrana, Bali",
-      mapsUrl: "https://maps.google.com",
+      mapsUrl: "https://maps.app.goo.gl/TMq2C8QSXgUx6f618?g_st=aw",
     },
   ];
 
