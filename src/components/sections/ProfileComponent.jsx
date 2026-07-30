@@ -5,27 +5,29 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      delayChildren: 0.2,
-      staggerChildren: 0.15,
+      delayChildren: 0.1,
+      staggerChildren: 0.12,
     },
   },
 };
 
 const textFadeIn = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 1,
+      duration: 0.8,
       ease: [0.25, 1, 0.5, 1],
     },
   },
 };
 
+// Margin memicu animasi lebih awal sebelum elemen benar-benar terlihat penuh
 const viewportConfig = {
   once: true,
-  amount: 0.2,
+  amount: 0.1,
+  margin: "100px 0px 0px 0px",
 };
 
 const profiles = [
@@ -63,7 +65,7 @@ const ProfileComponents = () => {
           return (
             <div
               key={person.id}
-              className={`relative min-h-[80vh] md:min-h-500px flex items-end rounded-3xl overflow-hidden border border-zinc-800/80 shadow-2xl ${
+              className={`relative min-h-[80vh] md:min-h-[500px] flex items-end rounded-3xl overflow-hidden border border-zinc-800/80 shadow-2xl bg-zinc-950 ${
                 isEven ? "justify-start" : "justify-end"
               }`}
             >
@@ -72,14 +74,17 @@ const ProfileComponents = () => {
                 <motion.img
                   src={person.image}
                   alt={person.name}
-                  className="w-full h-full object-cover object-center"
-                  initial={{ scale: 1.15, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-full h-full object-cover object-center will-change-transform"
+                  initial={{ scale: 1.08 }}
+                  whileInView={{ scale: 1 }}
                   viewport={viewportConfig}
-                  transition={{ duration: 1.5, ease: [0.25, 1, 0.5, 1] }}
+                  transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
                 />
                 <div
-                  className={`absolute inset-0 bg-linear-to-t from-black/95 via-black/50 to-transparent md:bg-linear-to-r ${
+                  className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent md:bg-gradient-to-r ${
                     isEven
                       ? "md:from-black/90 md:via-black/60 md:to-transparent"
                       : "md:from-transparent md:via-black/60 md:to-black/90"
