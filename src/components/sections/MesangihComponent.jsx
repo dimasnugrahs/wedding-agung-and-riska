@@ -75,6 +75,20 @@ const MesangihComponents = ({
 
           <div className="w-16 h-px bg-linear-to-r from-transparent via-amber-500/50 to-transparent mt-2" />
         </motion.div>
+        <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-full max-w-md h-32 pointer-events-none z-0 flex items-center justify-center">
+          {/* Layer Inner Glow Emas Terang */}
+          <motion.div
+            animate={{ opacity: [0.6, 0.9, 0.6], scale: [0.95, 1.05, 0.95] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="w-3/4 h-20 bg-amber-400/40 rounded-full blur-2xl"
+          />
+          {/* Layer Outer Glow Emas Hangat Luas */}
+          <motion.div
+            animate={{ opacity: [0.4, 0.7, 0.4] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute w-full h-28 bg-amber-600/15 rounded-full blur-3xl"
+          />
+        </div>
 
         {/* SINGLE BOX UNTUK SEMUA NAMA */}
         <motion.div

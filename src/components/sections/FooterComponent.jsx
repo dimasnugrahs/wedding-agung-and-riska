@@ -67,7 +67,7 @@ const FooterComponent = () => {
         {/* 1. JUDUL TERIMA KASIH */}
         <motion.div variants={textFadeIn} className="w-full">
           <h2 className="text-2xl md:text-3xl tracking-widest text-white">
-            TERIMA KASIH
+            Terima Kasih
           </h2>
         </motion.div>
 
