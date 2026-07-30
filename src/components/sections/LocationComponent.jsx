@@ -30,20 +30,21 @@ const viewportConfig = {
 
 const LocationComponent = () => {
   const events = [
-    {
-      title: "Acara di Rumah Mempelai Wanita",
-      date: "Selasa, 20 Oktober 2026",
-      time: "08.00 WITA - Selesai",
-      location: "Rumah Mempelai Wanita",
-      address: "Jembrana, Bali",
-      mapsUrl: "https://maps.google.com",
-    },
+    // {
+    //   title: "Acara di Rumah Mempelai Wanita",
+    //   date: "Selasa, 20 Oktober 2026",
+    //   time: "08.00 WITA - Selesai",
+    //   location: "Rumah Mempelai Wanita",
+    //   address: "Jembrana, Bali",
+    //   mapsUrl: "https://maps.google.com",
+    // },
     {
       title: "Acara di Rumah Mempelai Pria",
       date: "Rabu, 21 Oktober 2026",
       time: "08.00 WITA - Selesai",
       location: "Rumah Mempelai Pria",
-      address: "Jembrana, Bali",
+      address:
+        "Jl. Sabda Paling Gg. I,Dangin Tukadaya, Kec. Jembrana, Kabupaten Jembrana, Bali",
       mapsUrl: "https://maps.google.com",
     },
   ];
@@ -80,10 +81,11 @@ const LocationComponent = () => {
         {/* Teks Pembukaan */}
         <motion.div variants={textFadeIn} className="w-full">
           <p className="leading-relaxed font-light text-zinc-300 text-sm md:text-sm">
-            Atas Asung Kerta Wara Nugraha Ida Sang Hyang Widi Wasa/Tuhan Yang
-            Maha Esa, Kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir
-            pada acara Pawiwahan (Pernikahan) putra dan putri kami yang akan
-            dilaksanakan pada:
+            Atas Asung Kerta Wara Nugraha Ida Sang Hyang Widhi Wasa/Tuhan Yang
+            Maha Esa, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk
+            berkenan hadir serta memberikan doa restu pada acara Pawiwahan
+            (Pernikahan) dan Upacara Mepandes (Potong Gigi) yang akan kami
+            selenggarakan pada:
           </p>
           <div className="h-px bg-zinc-800/80 w-full my-6" />
         </motion.div>
@@ -137,8 +139,8 @@ const LocationComponent = () => {
         <motion.div variants={textFadeIn} className="w-full space-y-2 pt-2">
           <p className="leading-relaxed font-light text-zinc-300 text-sm md:text-sm">
             Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
-            Bapak/Ibu/Saudara/i berkenan hadir serta memberikan doa restu kepada
-            kedua mempelai.
+            Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu serta
+            turut berbagi kebahagiaan bersama kami.
           </p>
           <p className="font-light text-zinc-400 italic text-sm md:text-sm">
             Atas kehadiran dan doa restunya, kami ucapkan terima kasih.
