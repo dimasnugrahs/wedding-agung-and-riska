@@ -12,6 +12,10 @@ import { AnimatePresence } from "motion/react";
 import Cover from "./components/core/CoverComponent";
 import Hero from "./components/core/HeroComponent";
 
+const GeneratorPage = lazy(
+  () => import("./components/GeneratorPage.jsx"),
+);
+
 // 2. Section Components (Lazy Load / Dimuat Asinkron Berdasarkan Path Baru)
 const WishSection = lazy(
   () => import("./components/sections/WishComponent.jsx"),
@@ -49,11 +53,23 @@ const App = () => {
   const [guestName, setGuestName] = useState("Tamu Undangan");
   const [isPlaying, setIsPlaying] = useState(false);
 
+  const [isGeneratorRoute, setIsGeneratorRoute] = useState(false);
+
   const audioRef = useRef(null);
 
   // Ambil parameter nama tamu dari URL (?to=NamaTamu)
+
   const updateGuestName = useCallback(() => {
     if (typeof window !== "undefined") {
+      // [TAMBAHAN 3] Pengecekan path URL
+      const pathname = window.location.pathname.toLowerCase();
+      if (pathname === "/generator" || pathname === "/generator/") {
+        setIsGeneratorRoute(true);
+        return;
+      }
+
+      setIsGeneratorRoute(false);
+
       const params = new URLSearchParams(window.location.search);
       const toParam = params.get("to");
       if (toParam) {
@@ -120,6 +136,22 @@ const App = () => {
       setIsPlaying(true);
     }
   };
+
+  if (isGeneratorRoute) {
+    return (
+      <Suspense fallback={<SectionLoader />}>
+        <div className="relative min-h-screen bg-black">
+          <a
+            href="/"
+            className="fixed top-4 left-4 z-50 bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 border border-zinc-700/60 px-4 py-2 rounded-xl text-xs tracking-wider backdrop-blur-md transition-all inline-flex items-center gap-1"
+          >
+            ← Kembali ke Undangan
+          </a>
+          <GeneratorPage />
+        </div>
+      </Suspense>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-black font-inter text-zinc-100 overflow-x-hidden relative">

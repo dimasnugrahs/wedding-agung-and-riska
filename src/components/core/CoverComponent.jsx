@@ -125,7 +125,7 @@ const CoverComponent = ({
                 className="w-full h-full object-cover object-center"
               />
               {/* Overlay Gelap Aksen Premium */}
-              <div className="absolute inset-0 bg-black/60" />
+              <div className="absolute inset-0 bg-black/40" />
             </div>
 
             {/* Header Cover: Judul */}
