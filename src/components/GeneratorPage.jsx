@@ -17,20 +17,21 @@ const GeneratorPage = () => {
     : BASE_URL;
 
   // Template Kalimat Undangan WhatsApp
-  const messageTemplate = `Om Swastyastu,
+  const messageTemplate = `Om Swastyastu
 
+Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir serta memberikan doa restu pada acara pernikahan kami.
+  
 Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i:
 *${guestName.trim() || "[Nama Tamu]"}*
-
-Untuk menghadiri acara Pernikahan kami (Agung & Riska).
-
-Berikut detail informasi acara dan lokasi dapat diakses melalui link undangan digital berikut:
+  
+Untuk melihat informasi lengkap mengenai rangkaian acara melalui undangan digital berikut:
 ${invitationLink}
-
+  
 Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
-
-Matur Suksma / Terima Kasih.
-Om Shanti Shanti Shanti Om.`;
+  
+Atas perhatian, kehadiran, serta doa restunya, kami ucapkan terima kasih.
+  
+Om Shanti, Shanti, Shanti Om`;
 
   const handleCopy = async () => {
     if (!guestName.trim()) return;
@@ -92,7 +93,7 @@ Om Shanti Shanti Shanti Om.`;
               ? "bg-zinc-800 text-zinc-500 cursor-not-allowed"
               : copied
                 ? "bg-emerald-600 text-white shadow-[0_0_20px_rgba(16,185,129,0.3)]"
-                : "bg-gradient-to-r from-amber-500 to-amber-600 text-black hover:brightness-110 shadow-[0_0_20px_rgba(245,158,11,0.2)]"
+                : "bg-linear-to-r from-amber-500 to-amber-600 text-black hover:brightness-110 shadow-[0_0_20px_rgba(245,158,11,0.2)]"
           }`}
         >
           <AnimatePresence mode="wait">

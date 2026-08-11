@@ -39,7 +39,7 @@ const LocationComponent = () => {
     //   mapsUrl: "https://maps.google.com",
     // },
     {
-      title: "Acara di Rumah Mempelai Pria",
+      title: "Resepsi",
       date: "Rabu, 21 Oktober 2026",
       time: "13.00 WITA - Selesai",
       location: "Rumah Mempelai Pria",
