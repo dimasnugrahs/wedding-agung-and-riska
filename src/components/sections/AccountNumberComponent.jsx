@@ -170,15 +170,6 @@ const AccountNumberComponent = () => {
                       BRI<span className="text-white font-normal">.</span>
                     </span>
                   </div>
-
-                  {/* Ornamen Chip ATM Emas */}
-                  <div className="w-9 h-7 bg-linear-to-br from-amber-200 via-yellow-400 to-amber-500 rounded-md border border-amber-600/30 p-1 flex flex-col justify-between opacity-95 shadow-sm">
-                    <div className="h-full w-full border border-amber-100/20 rounded-xs grid grid-cols-3 gap-2px">
-                      <div className="border-r border-b border-amber-700/20" />
-                      <div className="border-r border-b border-amber-700/20" />
-                      <div className="border-b border-amber-700/20" />
-                    </div>
-                  </div>
                 </div>
 
                 {/* Tengah Kartu: Nomor Rekening & Nama */}
